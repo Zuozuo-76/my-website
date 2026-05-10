@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Yawen Zuo | Statistics & Risk Management</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, "Microsoft YaHei", sans-serif;
+      background: #f6f7fb;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      position: relative;
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: white;
+      padding: 90px 24px 80px;
+      text-align: center;
+    }
+
+    .language-switcher {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      z-index: 10;
+    }
+
+    .language-switcher button {
+      padding: 8px 14px;
+      margin-left: 8px;
+      border: 1px solid white;
+      border-radius: 999px;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .language-switcher button.active {
+      background: white;
+      color: #111827;
+    }
+
+    .hero-content {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      font-size: 64px;
+      margin: 0 0 18px;
+      letter-spacing: 1px;
+      font-weight: 800;
+    }
+
+    header p {
+      font-size: 28px;
+      color: #d1d5db;
+      margin: 8px 0;
+      font-weight: 600;
+    }
+
+    .tagline {
+      max-width: 1050px;
+      margin: 42px auto 0;
+      font-size: 24px;
+      color: #e5e7eb;
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
+    .buttons {
+      margin-top: 52px;
+    }
+
+    .button {
+      display: inline-block;
+      margin: 8px 12px;
+      padding: 16px 34px;
+      border-radius: 999px;
+      background: white;
+      color: #111827;
+      font-weight: 800;
+      font-size: 20px;
+      border: 2px solid white;
+      transition: all 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 42px auto;
+      padding: 0 24px;
+    }
+
+    section {
+      background: white;
+      padding: 38px;
+      margin-bottom: 28px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 28px;
+      font-size: 34px;
+      color: #111827;
+      border-left: 6px solid #2563eb;
+      padding-left: 16px;
+      line-height: 1.2;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      color: #1f2937;
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-top: 0;
+    }
+
+    ul {
+      margin-top: 14px;
+      padding-left: 28px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 17px;
+    }
+
+    .subtitle {
+      color: #6b7280;
+      font-size: 17px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .education-item,
+    .experience-item,
+    .project-item {
+      margin-bottom: 34px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .education-item:last-child,
+    .experience-item:last-child,
+    .project-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .education-header,
+    .experience-header,
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .date {
+      color: #6b7280;
+      font-weight: 800;
+      white-space: nowrap;
+      font-size: 18px;
+      padding-top: 3px;
+    }
+
+    .card {
+      background: #f9fafb;
+      padding: 24px;
+      border-radius: 16px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill {
+      background: #eef2ff;
+      color: #1e3a8a;
+      padding: 9px 15px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    footer {
+      text-align: center;
+      padding: 36px 20px;
+      color: #6b7280;
+      font-size: 15px;
+    }
+
+    .lang-zh {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 86px 20px 64px;
+      }
+
+      .language-switcher {
+        top: 18px;
+        right: 16px;
+      }
+
+      .language-switcher button {
+        padding: 7px 11px;
+        margin-left: 5px;
+        font-size: 13px;
+      }
+
+      header h1 {
+        font-size: 44px;
+      }
+
+      header p {
+        font-size: 21px;
+      }
+
+      .tagline {
+        font-size: 18px;
+        margin-top: 30px;
+      }
+
+      .button {
+        font-size: 17px;
+        padding: 13px 24px;
+        margin: 8px 6px;
+      }
+
+      main {
+        margin: 28px auto;
+        padding: 0 16px;
+      }
+
+      section {
+        padding: 26px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      h3 {
+        font-size: 21px;
+      }
+
+      p,
+      li {
+        font-size: 16px;
+      }
+
+      .date {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="language-switcher">
+      <button id="btn-en" class="active" onclick="setLanguage('en')">English</button>
+      <button id="btn-zh" onclick="setLanguage('zh')">中文</button>
+    </div>
+
+    <div class="hero-content lang-en">
+      <h1>Yawen Zuo</h1>
+      <p>Statistics | Financial Risk Analysis | Data Analytics</p>
+
+      <div class="tagline">
+        Preferred role: Quantitative Finance
+      </div>
+
+      <div class="buttons">
+        <a class="button" href="mailto:yawen_zuo76@163.com">Contact Me</a>
+        <a class="button secondary" href="resume_en.pdf" target="_blank">View Resume</a>
+      </div>
+    </div>
+
+    <div class="hero-content lang-zh">
+      <h1>左雅雯</h1>
+      <p>统计学 | 金融风险分析 | 数据分析</p>
+
+      <div class="tagline">
+        意向岗位：量化金融
+      </div>
+
+      <div class="buttons">
+        <a class="button" href="mailto:yawen_zuo76@163.com">联系我</a>
+        <a class="button secondary" href="resume_zh.pdf" target="_blank">查看简历</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="lang-en">
+        <h2>About Me</h2>
+
+        <p>
+          Bachelor of Statistics student at the University of Toronto and incoming Master of Statistics
+          student at The University of Hong Kong.
+        </p>
+
+        <p>
+          My career path focuses on quantitative finance, financial risk analysis, and statistical modeling.
+          I have experience in data analysis, machine learning, bond markets, and capital markets.
+        </p>
+
+        <p>
+          I am interested in applying statistical thinking, financial analysis, and data-driven methods
+          to real-world business and risk management problems. My academic background in statistics and
+          mathematics has trained me to work with uncertainty, model complex relationships, and translate
+          data into practical insights.
+        </p>
+
+        <p>
+          Through internships in securities firms and big data development, I have gained hands-on experience
+          in credit analysis, bond issuance, risk assessment, market research, data processing, and business
+          reporting.
+        </p>
+      </div>
+
+      <div class="lang-zh">
+        <h2>自我介绍</h2>
+
+        <p>
+          本科就读于多伦多大学统计方向，研究生将就读于香港大学统计学硕士。
+        </p>
+
+        <p>
+          我的职业方向是量化金融、金融风险分析与统计建模，并具备数据分析、机器学习、
+          债券市场和资本市场相关经历。
+        </p>
+
+        <p>
+          我关注如何将统计思维、金融分析和数据驱动方法应用于实际商业与风险管理问题。
+          统计学和数学背景让我能够处理不确定性、建立模型、分析复杂关系，并将数据转化为可执行的业务洞察。
+        </p>
+
+        <p>
+          通过证券公司和大数据公司的实习经历，我积累了信用分析、债券发行、风险评估、市场研究、
+          数据处理和商业报告相关经验。
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="lang-en">
+        <h2>Education</h2>
+
+        <div class="education-item">
+          <div class="education-header">
+            <div>
+              <h3>University of Toronto</h3>
+              <div class="subtitle">Toronto, ON, Canada</div>
+            </div>
+            <div class="date">Sept 2022 - June 2026</div>
+          </div>
+
+          <p>
+            <strong>Honours Bachelor of Science</strong><br />
+            Applied Statistics Specialization<br />
+            Mathematical Science Minor
+          </p>
+
+          <p>
+            Relevant coursework: Probability, Regression Analysis, Time Series Analysis, Stochastic Processes,
+            Bayesian Statistics, Multivariate Statistics, Calculus, Differential Equations, Combinatorics,
+            Complex Variables, Nonlinear Dynamics and Chaos.
+          </p>
+        </div>
+
+        <div class="education-item">
+          <div class="education-header">
+            <div>
+              <h3>The University of Hong Kong</h3>
+              <div class="subtitle">Hong Kong</div>
+            </div>
+            <div class="date">Sept 2026 - June 2027</div>
+          </div>
+
+          <p>
+            <strong>Master of Statistics</strong><br />
+            Focus: Risk Management, Financial Data Analytics, and Statistical Modeling
+          </p>
+        </div>
+      </div>
+
+      <div class="lang-zh">
+        <h2>教育经历</h2>
+
+        <div class="education-item">
+          <div class="education-header">
+            <div>
+              <h3>多伦多大学</h3>
+              <div class="subtitle">加拿大安大略省多伦多</div>
+            </div>
+            <div class="date">2022年9月 - 2026年6月</div>
+          </div>
+
+          <p>
+            <strong>荣誉理学学士</strong><br />
+            统计学方向<br />
+            数学科学辅修
+          </p>
+
+          <p>
+            相关课程：概率论、回归分析、时间序列分析、随机过程、贝叶斯统计、多元统计、
+            微积分、微分方程、组合数学、复变函数、非线性动力学与混沌。
+          </p>
+        </div>
+
+        <div class="education-item">
+          <div class="education-header">
+            <div>
+              <h3>香港大学</h3>
+              <div class="subtitle">中国香港</div>
+            </div>
+            <div class="date">2026年9月 - 2027年6月</div>
+          </div>
+
+          <p>
+            <strong>统计学硕士</strong><br />
+            方向：风险管理、金融数据分析与统计建模
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="lang-en">
+        <h2>Professional Experience</h2>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <h3>Teaching Assistant</h3>
+              <div class="subtitle">SavvyUni Teaching Institution · Mississauga, Canada</div>
+            </div>
+            <div class="date">Sept 2024 - Present</div>
+          </div>
+
+          <ul>
+            <li>Collaborated with faculty members to refine lesson plans and teaching materials.</li>
+            <li>Facilitated weekly tutorials by explaining advanced statistical and mathematical concepts clearly.</li>
+            <li>Supported students outside class by answering questions and clarifying coursework expectations.</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <h3>Capital Markets Intern</h3>
+              <div class="subtitle">Shenwan & Hongyuan Securities Co., Ltd. · Jinan, China</div>
+            </div>
+            <div class="date">Jul 2025 - Sept 2025</div>
+          </div>
+
+          <ul>
+            <li>Supported bond issuance projects, including ABS, convertible bonds, innovation bonds, and green bonds.</li>
+            <li>Prepared financial analyses, project proposals, and compliance materials.</li>
+            <li>Conducted market and policy research to evaluate credit risk, pricing strategies, and investment potential.</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <h3>Quantitative Finance Intern</h3>
+              <div class="subtitle">Sinolink Securities Co., Ltd. · Jinan, China</div>
+            </div>
+            <div class="date">May 2024 - Jul 2024</div>
+          </div>
+
+          <ul>
+            <li>Supported bond issuance projects by drafting proposals, legal opinions, and compliance filings.</li>
+            <li>Built and reviewed Excel-based financial models for credit analysis, risk assessment, and yield projection.</li>
+            <li>Prepared data-driven documentation for fundraising bidding projects, two of which were successfully awarded.</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <h3>Data Analyst Intern</h3>
+              <div class="subtitle">Yantai Big Data Development Group Co., Ltd. · Yantai, China</div>
+            </div>
+            <div class="date">Jul 2023 - Aug 2023</div>
+          </div>
+
+          <ul>
+            <li>Processed and validated large datasets using Python, SQL, and R.</li>
+            <li>Applied statistical modeling and exploratory data analysis in R and SAS.</li>
+            <li>Developed automated reporting workflows with Excel and Tableau.</li>
+            <li>Created technical documentation and flow charts for a smart transportation program.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lang-zh">
+        <h2>实习与工作经历</h2>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <h3>助教</h3>
+              <div class="subtitle">SavvyUni Teaching Institution · 加拿大密西沙加</div>
+            </div>
+            <div class="date">2024年9月 - 至今</div>
+          </div>
+
+          <ul>
+            <li>与教师团队合作优化课程计划和教学材料。</li>
+            <li>每周组织辅导课，将统计和数学中的复杂概念转化为清晰、易理解的讲解。</li>
+            <li>为学生提供课后答疑和学习支持，帮助其理解课程要求与知识重点。</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <h3>资本市场实习生</h3>
+              <div class="subtitle">申万宏源证券有限公司 · 中国济南</div>
+            </div>
+            <div class="date">2025年7月 - 2025年9月</div>
+          </div>
+
+          <ul>
+            <li>参与 ABS、可转债、创新债和绿色债等债券发行项目。</li>
+            <li>协助准备财务分析、项目建议书和合规材料。</li>
+            <li>开展市场与政策研究，用于评估信用风险、定价策略和投资潜力。</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <h3>量化金融实习生</h3>
+              <div class="subtitle">国金证券股份有限公司 · 中国济南</div>
+            </div>
+            <div class="date">2024年5月 - 2024年7月</div>
+          </div>
+
+          <ul>
+            <li>支持债券发行项目，参与项目方案、法律意见书和合规文件的撰写。</li>
+            <li>搭建和检查 Excel 财务模型，用于信用分析、风险评估和收益预测。</li>
+            <li>参与融资招标项目的数据材料准备，其中两个项目成功中标。</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <h3>数据分析实习生</h3>
+              <div class="subtitle">烟台市大数据发展集团有限公司 · 中国烟台</div>
+            </div>
+            <div class="date">2023年7月 - 2023年8月</div>
+          </div>
+
+          <ul>
+            <li>使用 Python、SQL 和 R 处理并验证大型数据集。</li>
+            <li>使用 R 和 SAS 进行统计建模与探索性数据分析。</li>
+            <li>使用 Excel 和 Tableau 搭建自动化报告流程，提升指标可视化和沟通效率。</li>
+            <li>为智慧交通项目制作技术流程图和项目文档。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="lang-en">
+        <h2>Project Experience</h2>
+
+        <div class="project-item">
+          <div class="project-header">
+            <div>
+              <h3>Machine Learning Course Competition</h3>
+              <div class="subtitle">University of Toronto</div>
+            </div>
+            <div class="date">Nov 2024 - Dec 2024</div>
+          </div>
+
+          <ul>
+            <li>Conducted exploratory data analysis on a high-dimensional dataset.</li>
+            <li>Applied log transformation and feature standardization to improve model performance.</li>
+            <li>Used Bagging and LASSO regression with cross-validation for feature selection and interpretation.</li>
+            <li>Built an ensemble Random Forest model and achieved a top 9/90 ranking in the competition.</li>
+          </ul>
+        </div>
+
+        <div class="project-item">
+          <div class="project-header">
+            <div>
+              <h3>Business Case Project Member</h3>
+              <div class="subtitle">Impact Origin, Workplace Education Program · Toronto, Canada</div>
+            </div>
+            <div class="date">Oct 2025 - Nov 2025</div>
+          </div>
+
+          <ul>
+            <li>Conducted weekly industry and business analyses on the technology sector, focusing on economic trends, financial performance, and consumer behavior.</li>
+            <li>Completed case projects on North American companies, evaluating operations, financials, and marketing strategies.</li>
+            <li>Participated in client-facing strategy discussions and delivered a final business case presentation.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lang-zh">
+        <h2>项目经历</h2>
+
+        <div class="project-item">
+          <div class="project-header">
+            <div>
+              <h3>机器学习课程竞赛</h3>
+              <div class="subtitle">多伦多大学</div>
+            </div>
+            <div class="date">2024年11月 - 2024年12月</div>
+          </div>
+
+          <ul>
+            <li>对高维数据集进行探索性数据分析。</li>
+            <li>对目标变量进行对数变换，并对特征进行标准化以提升模型表现。</li>
+            <li>使用 Bagging 和 LASSO 回归结合交叉验证进行特征选择和模型解释。</li>
+            <li>构建集成随机森林模型，并在课程竞赛中取得前 9/90 名成绩。</li>
+          </ul>
+        </div>
+
+        <div class="project-item">
+          <div class="project-header">
+            <div>
+              <h3>商业案例项目成员</h3>
+              <div class="subtitle">Impact Origin, Workplace Education Program · 加拿大多伦多</div>
+            </div>
+            <div class="date">2025年10月 - 2025年11月</div>
+          </div>
+
+          <ul>
+            <li>针对科技行业进行每周行业与商业分析，研究经济趋势、财务表现和消费者行为。</li>
+            <li>完成北美公司案例项目，从运营、财务和市场营销角度进行分析。</li>
+            <li>参与客户导向的战略讨论，并完成最终商业案例展示。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="lang-en">
+        <h2>Skills</h2>
+
+        <div class="skills">
+          <span class="skill">Python</span>
+          <span class="skill">R</span>
+          <span class="skill">SQL</span>
+          <span class="skill">SAS</span>
+          <span class="skill">Tableau</span>
+          <span class="skill">Excel</span>
+          <span class="skill">PowerPoint</span>
+          <span class="skill">LaTeX</span>
+          <span class="skill">Statistical Modeling</span>
+          <span class="skill">Machine Learning</span>
+          <span class="skill">Financial Analysis</span>
+          <span class="skill">Risk Assessment</span>
+          <span class="skill">Data Visualization</span>
+          <span class="skill">Credit Analysis</span>
+        </div>
+      </div>
+
+      <div class="lang-zh">
+        <h2>技能</h2>
+
+        <div class="skills">
+          <span class="skill">Python</span>
+          <span class="skill">R</span>
+          <span class="skill">SQL</span>
+          <span class="skill">SAS</span>
+          <span class="skill">Tableau</span>
+          <span class="skill">Excel</span>
+          <span class="skill">PowerPoint</span>
+          <span class="skill">LaTeX</span>
+          <span class="skill">统计建模</span>
+          <span class="skill">机器学习</span>
+          <span class="skill">金融分析</span>
+          <span class="skill">风险评估</span>
+          <span class="skill">数据可视化</span>
+          <span class="skill">信用分析</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="lang-en">
+        <h2>Certifications</h2>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Tableau Desktop Specialist</h3>
+            <p>Issued Jan 2025</p>
+          </div>
+
+          <div class="card">
+            <h3>SQL for Data Science</h3>
+            <p>Issued Jan 2025</p>
+          </div>
+
+          <div class="card">
+            <h3>SAS Base Program</h3>
+            <p>Issued Jan 2025</p>
+          </div>
+
+          <div class="card">
+            <h3>MATLAB Basic Certification</h3>
+            <p>Issued Jan 2025</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lang-zh">
+        <h2>证书</h2>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Tableau Desktop Specialist</h3>
+            <p>2025年1月获得</p>
+          </div>
+
+          <div class="card">
+            <h3>SQL for Data Science</h3>
+            <p>2025年1月获得</p>
+          </div>
+
+          <div class="card">
+            <h3>SAS Base Program</h3>
+            <p>2025年1月获得</p>
+          </div>
+
+          <div class="card">
+            <h3>MATLAB Basic Certification</h3>
+            <p>2025年1月获得</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="lang-en">
+        <h2>Contact</h2>
+
+        <p>
+          I am open to opportunities in quantitative finance, financial risk analysis, data analytics,
+          financial analysis, and business intelligence.
+        </p>
+
+        <p>
+          Email:
+          <a href="mailto:yawen_zuo76@163.com">yawen_zuo76@163.com</a>
+        </p>
+
+        <p>
+          GitHub:
+          <a href="https://github.com/Zuozuo-76" target="_blank">github.com/Zuozuo-76</a>
+        </p>
+      </div>
+
+      <div class="lang-zh">
+        <h2>联系方式</h2>
+
+        <p>
+          我关注量化金融、金融风险分析、数据分析、金融分析和商业智能相关机会。
+        </p>
+
+        <p>
+          邮箱：
+          <a href="mailto:yawen_zuo76@163.com">yawen_zuo76@163.com</a>
+        </p>
+
+        <p>
+          GitHub：
+          <a href="https://github.com/Zuozuo-76" target="_blank">github.com/Zuozuo-76</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="lang-en">
+      © 2026 Yawen Zuo. All rights reserved.
+    </div>
+
+    <div class="lang-zh">
+      © 2026 左雅雯。保留所有权利。
+    </div>
+  </footer>
+
+  <script>
+    function setLanguage(language) {
+      const englishContent = document.querySelectorAll('.lang-en');
+      const chineseContent = document.querySelectorAll('.lang-zh');
+
+      const englishButton = document.getElementById('btn-en');
+      const chineseButton = document.getElementById('btn-zh');
+
+      if (language === 'en') {
+        englishContent.forEach(function(item) {
+          item.style.display = 'block';
+        });
+
+        chineseContent.forEach(function(item) {
+          item.style.display = 'none';
+        });
+
+        englishButton.classList.add('active');
+        chineseButton.classList.remove('active');
+
+        document.documentElement.lang = 'en';
+        localStorage.setItem('siteLanguage', 'en');
+      } else {
+        englishContent.forEach(function(item) {
+          item.style.display = 'none';
+        });
+
+        chineseContent.forEach(function(item) {
+          item.style.display = 'block';
+        });
+
+        englishButton.classList.remove('active');
+        chineseButton.classList.add('active');
+
+        document.documentElement.lang = 'zh-CN';
+        localStorage.setItem('siteLanguage', 'zh');
+      }
+    }
+
+    const savedLanguage = localStorage.getItem('siteLanguage') || 'en';
+    setLanguage(savedLanguage);
+  </script>
+</body>
+</html>
