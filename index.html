@@ -1,889 +1,1281 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Yawen Zuo | Statistics & Risk Management</title>
+  <meta name="description" content="Yawen Zuo's bilingual portfolio in quantitative finance, risk analytics, statistical modeling, and data science." />
+  <meta name="theme-color" content="#071a2b" />
+  <meta property="og:title" content="Yawen Zuo | Quantitative Finance & Risk Analytics" />
+  <meta property="og:description" content="Statistics graduate and HKU Master of Statistics student building data-driven solutions for financial risk and quantitative analysis." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="profile.jpg" />
+  <title>Yawen Zuo | Quantitative Finance & Risk Analytics</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <style>
+    :root {
+      --navy-950: #05131f;
+      --navy-900: #071a2b;
+      --navy-800: #0d2940;
+      --teal-500: #16b8a6;
+      --teal-400: #2dd4bf;
+      --blue-500: #3b82f6;
+      --bg: #f4f7f8;
+      --surface: #ffffff;
+      --surface-soft: #eaf2f3;
+      --text: #142433;
+      --muted: #5d6d79;
+      --line: #d7e1e4;
+      --shadow: 0 24px 70px rgba(7, 26, 43, 0.11);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #07131d;
+      --surface: #0e2130;
+      --surface-soft: #122c3d;
+      --text: #e8f1f4;
+      --muted: #a8b8c2;
+      --line: #244254;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+    }
+
     * {
       box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 92px;
     }
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, "Microsoft YaHei", sans-serif;
-      background: #f6f7fb;
-      color: #222;
-      line-height: 1.6;
+      overflow-x: hidden;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image: radial-gradient(circle at 12% 14%, rgba(22, 184, 166, 0.07), transparent 26%),
+                        radial-gradient(circle at 88% 35%, rgba(59, 130, 246, 0.06), transparent 28%);
     }
 
     a {
-      color: #2563eb;
+      color: inherit;
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
     }
 
-    header {
-      position: relative;
-      background: linear-gradient(135deg, #111827, #1f2937);
-      color: white;
-      padding: 90px 24px 80px;
-      text-align: center;
+    :focus-visible {
+      outline: 3px solid var(--teal-400);
+      outline-offset: 4px;
+      border-radius: 8px;
     }
 
-    .language-switcher {
-      position: absolute;
-      top: 24px;
-      right: 28px;
-      z-index: 10;
-    }
-
-    .language-switcher button {
-      padding: 8px 14px;
-      margin-left: 8px;
-      border: 1px solid white;
-      border-radius: 999px;
-      background: transparent;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .language-switcher button.active {
+    .skip-link {
+      position: fixed;
+      top: -100px;
+      left: 20px;
+      z-index: 1000;
+      padding: 10px 16px;
       background: white;
-      color: #111827;
-    }
-
-    .hero-content {
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-
-    header h1 {
-      font-size: 64px;
-      margin: 0 0 18px;
-      letter-spacing: 1px;
+      color: var(--navy-900);
+      border-radius: 10px;
       font-weight: 800;
     }
 
-    header p {
-      font-size: 28px;
-      color: #d1d5db;
-      margin: 8px 0;
-      font-weight: 600;
+    .skip-link:focus {
+      top: 16px;
     }
 
-    .tagline {
-      max-width: 1050px;
-      margin: 42px auto 0;
-      font-size: 24px;
-      color: #e5e7eb;
+    .site-nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(5, 19, 31, 0.84);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-weight: 850;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal-400), #68f0d8);
+      color: var(--navy-950);
+      font-size: 14px;
+      box-shadow: 0 0 0 6px rgba(45, 212, 191, 0.08);
+    }
+
+    .nav-links,
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links a {
+      padding: 9px 11px;
+      color: #c5d3dc;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .icon-button,
+    .lang-button,
+    .menu-button {
+      min-width: 38px;
+      height: 38px;
+      padding: 0 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 11px;
+      background: rgba(255, 255, 255, 0.06);
+      color: white;
+      cursor: pointer;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .menu-button {
+      display: none;
+      font-size: 20px;
+    }
+
+    .resume-nav {
+      display: inline-flex;
+      align-items: center;
+      height: 38px;
+      padding: 0 15px;
+      border-radius: 11px;
+      background: var(--teal-400);
+      color: var(--navy-950);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 780px;
+      padding: 154px 0 96px;
+      overflow: hidden;
+      background: var(--navy-950);
+      color: white;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 720px;
+      height: 720px;
+      top: -230px;
+      right: -180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(45, 212, 191, 0.16), transparent 66%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 190px;
+      opacity: 0.55;
+      background: linear-gradient(180deg, transparent, rgba(22, 184, 166, 0.06)),
+                  repeating-linear-gradient(90deg, transparent 0 7.9%, rgba(255, 255, 255, 0.035) 8%);
+      clip-path: polygon(0 72%, 8% 68%, 15% 74%, 23% 52%, 31% 58%, 39% 37%, 47% 48%, 55% 24%, 63% 34%, 71% 19%, 79% 30%, 87% 10%, 94% 16%, 100% 3%, 100% 100%, 0 100%);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 24px;
+      color: var(--teal-400);
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    .hero h1 {
+      margin: 0;
+      max-width: 720px;
+      font-size: clamp(52px, 7vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .hero h1 span {
+      display: block;
+      margin-top: 16px;
+      color: #a8bbc7;
+      font-size: 0.42em;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+      font-weight: 650;
+    }
+
+    .hero-copy {
+      max-width: 670px;
+      margin: 28px 0 0;
+      color: #c5d3dc;
+      font-size: clamp(18px, 2vw, 22px);
       line-height: 1.7;
-      font-weight: 500;
     }
 
-    .buttons {
-      margin-top: 52px;
+    .hero-focus {
+      margin-top: 26px;
+      color: #eaf7f5;
+      font-size: 14px;
+      font-weight: 750;
+      letter-spacing: 0.06em;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 38px;
     }
 
     .button {
-      display: inline-block;
-      margin: 8px 12px;
-      padding: 16px 34px;
-      border-radius: 999px;
-      background: white;
-      color: #111827;
-      font-weight: 800;
-      font-size: 20px;
-      border: 2px solid white;
-      transition: all 0.2s ease;
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 14px;
+      font-weight: 850;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
     .button:hover {
-      transform: translateY(-2px);
-      text-decoration: none;
+      transform: translateY(-3px);
+    }
+
+    .button.primary {
+      background: var(--teal-400);
+      color: var(--navy-950);
+      box-shadow: 0 14px 30px rgba(45, 212, 191, 0.2);
     }
 
     .button.secondary {
-      background: transparent;
+      border-color: rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.06);
       color: white;
-      border: 2px solid white;
+    }
+
+    .portrait-wrap {
+      position: relative;
+      max-width: 420px;
+      margin-left: auto;
+    }
+
+    .portrait-frame {
+      position: relative;
+      aspect-ratio: 0.82;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 220px 220px 28px 28px;
+      background: var(--navy-800);
+      box-shadow: 0 36px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    .portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 52% center;
+      filter: saturate(0.76) contrast(1.03);
+    }
+
+    .portrait-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(5, 19, 31, 0.48));
+      pointer-events: none;
+    }
+
+    .data-card {
+      position: absolute;
+      right: -34px;
+      bottom: 34px;
+      width: 210px;
+      padding: 17px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 16px;
+      background: rgba(10, 36, 53, 0.82);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(14px);
+    }
+
+    .data-card small {
+      display: block;
+      color: #9eb2bf;
+      font-weight: 700;
+    }
+
+    .data-card strong {
+      display: block;
+      margin-top: 3px;
+      color: white;
+      font-size: 26px;
+    }
+
+    .data-card span {
+      color: var(--teal-400);
+      font-size: 12px;
+      font-weight: 800;
     }
 
     main {
-      max-width: 1180px;
-      margin: 42px auto;
-      padding: 0 24px;
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
     }
 
-    section {
-      background: white;
-      padding: 38px;
-      margin-bottom: 28px;
-      border-radius: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    .section {
+      padding: 104px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section:last-child {
+      border-bottom: 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 80px;
+      margin-bottom: 56px;
+      align-items: end;
+    }
+
+    .section-index {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--teal-500);
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: 0.16em;
     }
 
     h2 {
-      margin-top: 0;
-      margin-bottom: 28px;
-      font-size: 34px;
-      color: #111827;
-      border-left: 6px solid #2563eb;
-      padding-left: 16px;
-      line-height: 1.2;
+      margin: 0;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
     }
 
-    h3 {
-      margin: 0 0 8px;
-      color: #1f2937;
-      font-size: 24px;
+    .section-lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.75;
     }
 
-    p {
-      font-size: 18px;
-      margin-top: 0;
-    }
-
-    ul {
-      margin-top: 14px;
-      padding-left: 28px;
-    }
-
-    li {
-      margin-bottom: 10px;
-      font-size: 17px;
-    }
-
-    .subtitle {
-      color: #6b7280;
-      font-size: 17px;
-      margin-bottom: 12px;
-      font-weight: 600;
-    }
-
-    .education-item,
-    .experience-item,
-    .project-item {
-      margin-bottom: 34px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .education-item:last-child,
-    .experience-item:last-child,
-    .project-item:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .education-header,
-    .experience-header,
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      align-items: flex-start;
-    }
-
-    .date {
-      color: #6b7280;
-      font-weight: 800;
-      white-space: nowrap;
-      font-size: 18px;
-      padding-top: 3px;
-    }
-
-    .card {
-      background: #f9fafb;
-      padding: 24px;
-      border-radius: 16px;
-      border: 1px solid #e5e7eb;
-    }
-
-    .grid {
+    .capability-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+    .capability {
+      min-height: 260px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .skill {
-      background: #eef2ff;
-      color: #1e3a8a;
-      padding: 9px 15px;
-      border-radius: 999px;
-      font-size: 15px;
+    .capability:hover,
+    .project-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(22, 184, 166, 0.55);
+      box-shadow: var(--shadow);
+    }
+
+    .capability-number {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--surface-soft);
+      color: var(--teal-500);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    h3 {
+      margin: 22px 0 10px;
+      font-size: 22px;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+    .capability p,
+    .project-card p,
+    .contact-copy {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin-left: auto;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 9px;
+      bottom: 14px;
+      left: 188px;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 74px;
+      padding-bottom: 48px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-date {
+      padding-top: 2px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .timeline-content {
+      position: relative;
+    }
+
+    .timeline-content::before {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: -41px;
+      width: 12px;
+      height: 12px;
+      border: 4px solid var(--bg);
+      border-radius: 50%;
+      background: var(--teal-500);
+      box-shadow: 0 0 0 1px var(--teal-500);
+    }
+
+    .timeline-content h3 {
+      margin: 0 0 5px;
+    }
+
+    .timeline-subtitle {
+      margin-bottom: 14px;
+      color: var(--teal-500);
+      font-size: 14px;
       font-weight: 800;
     }
 
-    footer {
-      text-align: center;
-      padding: 36px 20px;
-      color: #6b7280;
-      font-size: 15px;
+    .timeline-content p,
+    .timeline-content li {
+      color: var(--muted);
     }
 
-    .lang-zh {
+    .timeline-content p {
+      margin: 0;
+    }
+
+    .timeline-content ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+    }
+
+    .timeline-content li {
+      margin: 5px 0;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 20px;
+    }
+
+    .project-card {
+      position: relative;
+      min-height: 390px;
+      overflow: hidden;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project-card.featured {
+      color: white;
+      border: 0;
+      background: linear-gradient(145deg, var(--navy-900), #103b50);
+    }
+
+    .project-card.featured::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -85px;
+      bottom: -90px;
+      border: 42px solid rgba(45, 212, 191, 0.12);
+      border-radius: 50%;
+    }
+
+    .project-kicker {
+      color: var(--teal-500);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .featured .project-kicker {
+      color: var(--teal-400);
+    }
+
+    .project-card h3 {
+      max-width: 560px;
+      margin-top: 32px;
+      font-size: clamp(27px, 3.3vw, 42px);
+    }
+
+    .project-card.featured p {
+      max-width: 590px;
+      color: #bfd0d9;
+    }
+
+    .metric {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin: 24px 0 12px;
+    }
+
+    .metric strong {
+      color: var(--teal-400);
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .metric span {
+      color: #bfd0d9;
+      font-weight: 750;
+    }
+
+    .tags {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 26px;
+    }
+
+    .tag {
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .featured .tag {
+      border-color: rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.07);
+      color: #d8e6ec;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .skill-group {
+      padding: 26px;
+      border-top: 3px solid var(--teal-500);
+      border-radius: 0 0 var(--radius-md) var(--radius-md);
+      background: var(--surface);
+    }
+
+    .skill-group h3 {
+      margin: 0 0 17px;
+      font-size: 18px;
+    }
+
+    .skill-group ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skill-group li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .skill-group li:last-child {
+      border-bottom: 0;
+    }
+
+    .cert-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .cert {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: transparent;
+    }
+
+    .cert strong {
+      display: block;
+      line-height: 1.35;
+    }
+
+    .cert small {
+      color: var(--muted);
+    }
+
+    .contact-panel {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 60px;
+      padding: 60px;
+      border-radius: var(--radius-lg);
+      background: var(--navy-900);
+      color: white;
+    }
+
+    .contact-panel::after {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      right: -150px;
+      top: -150px;
+      border-radius: 50%;
+      background: rgba(45, 212, 191, 0.12);
+    }
+
+    .contact-panel h2 {
+      max-width: 680px;
+    }
+
+    .contact-panel .contact-copy {
+      max-width: 650px;
+      margin-top: 22px;
+      color: #b8c9d2;
+      font-size: 18px;
+    }
+
+    .contact-links {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .contact-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      font-weight: 800;
+      transition: background 0.2s ease;
+    }
+
+    .contact-links a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    footer {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 34px 0 46px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    body [data-lang] {
       display: none;
     }
 
-    @media (max-width: 768px) {
-      header {
-        padding: 86px 20px 64px;
+    body[data-language="en"] [data-lang="en"],
+    body[data-language="zh"] [data-lang="zh"] {
+      display: revert;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 20px;
+        right: 20px;
+        display: none;
+        padding: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 16px;
+        background: #081d2e;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
       }
 
-      .language-switcher {
-        top: 18px;
-        right: 16px;
+      .nav-links.open {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .language-switcher button {
-        padding: 7px 11px;
-        margin-left: 5px;
-        font-size: 13px;
+      .menu-button { display: inline-block; }
+      .resume-nav { display: none; }
+
+      .hero-grid {
+        grid-template-columns: 1fr 0.72fr;
+        gap: 42px;
       }
 
-      header h1 {
-        font-size: 44px;
+      .capability-grid,
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .cert-row { grid-template-columns: repeat(2, 1fr); }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner,
+      main,
+      footer,
+      .hero-grid {
+        width: min(100% - 32px, 1180px);
       }
 
-      header p {
-        font-size: 21px;
+      .brand-name { display: none; }
+      .nav-actions { gap: 6px; }
+      .lang-button, .icon-button, .menu-button { min-width: 36px; height: 36px; }
+
+      .hero {
+        min-height: auto;
+        padding: 126px 0 76px;
       }
 
-      .tagline {
-        font-size: 18px;
-        margin-top: 30px;
-      }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-copy { font-size: 18px; }
+      .portrait-wrap { width: min(86%, 380px); margin: 24px auto 0; }
+      .data-card { right: -10px; }
 
-      .button {
-        font-size: 17px;
-        padding: 13px 24px;
-        margin: 8px 6px;
-      }
+      .section { padding: 76px 0; }
+      .section-head { grid-template-columns: 1fr; gap: 22px; margin-bottom: 38px; }
+      .capability-grid, .skills-grid, .cert-row { grid-template-columns: 1fr; }
+      .capability { min-height: auto; }
 
-      main {
-        margin: 28px auto;
-        padding: 0 16px;
-      }
+      .timeline::before { left: 7px; }
+      .timeline-item { grid-template-columns: 1fr; gap: 12px; padding-left: 38px; }
+      .timeline-date { text-align: left; }
+      .timeline-content::before { left: -37px; }
 
-      section {
-        padding: 26px;
-      }
-
-      h2 {
-        font-size: 28px;
-      }
-
-      h3 {
-        font-size: 21px;
-      }
-
-      p,
-      li {
-        font-size: 16px;
-      }
-
-      .date {
-        font-size: 16px;
-      }
+      .project-card { min-height: auto; padding: 28px; }
+      .contact-panel { grid-template-columns: 1fr; gap: 34px; padding: 34px 26px; }
+      footer { flex-direction: column; }
     }
   </style>
 </head>
 
-<body>
-  <header>
-    <div class="language-switcher">
-      <button id="btn-en" class="active" onclick="setLanguage('en')">English</button>
-      <button id="btn-zh" onclick="setLanguage('zh')">中文</button>
+<body data-language="en">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Yawen Zuo home">
+        <span class="brand-mark">YZ</span>
+        <span class="brand-name">YAWEN ZUO</span>
+      </a>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#about"><span data-lang="en">About</span><span data-lang="zh">关于</span></a>
+        <a href="#experience"><span data-lang="en">Experience</span><span data-lang="zh">经历</span></a>
+        <a href="#projects"><span data-lang="en">Projects</span><span data-lang="zh">项目</span></a>
+        <a href="#skills"><span data-lang="en">Skills</span><span data-lang="zh">技能</span></a>
+        <a href="#contact"><span data-lang="en">Contact</span><span data-lang="zh">联系</span></a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="lang-button" id="language-toggle" type="button" aria-label="Switch to Chinese" aria-pressed="false">中文</button>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">◐</button>
+        <a class="resume-nav" id="resume-nav" href="resume_en.pdf" download>
+          <span data-lang="en">Resume ↓</span><span data-lang="zh">简历 ↓</span>
+        </a>
+        <button class="menu-button" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+      </div>
     </div>
+  </nav>
 
-    <div class="hero-content lang-en">
-      <h1>Yawen Zuo</h1>
-      <p>Statistics | Financial Risk Analysis | Data Analytics</p>
+  <header class="hero" id="top">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">
+          <span data-lang="en">Statistics · Finance · Data</span>
+          <span data-lang="zh">统计 · 金融 · 数据</span>
+        </p>
 
-      <div class="tagline">
-        Preferred role: Quantitative Finance
+        <div data-lang="en">
+          <h1>Yawen Zuo<span>Quantitative Finance & Risk Analytics</span></h1>
+          <p class="hero-copy">Statistics graduate and HKU Master of Statistics student building data-driven solutions for financial risk and quantitative analysis.</p>
+          <p class="hero-focus">QUANTITATIVE FINANCE · RISK ANALYTICS · STATISTICAL MODELING</p>
+        </div>
+
+        <div data-lang="zh">
+          <h1>左雅文<span>量化金融与风险分析</span></h1>
+          <p class="hero-copy">统计学本科毕业，现就读于香港大学统计学硕士，以数据驱动的方法解决金融风险与量化分析问题。</p>
+          <p class="hero-focus">量化金融 · 风险分析 · 统计建模</p>
+        </div>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">
+            <span data-lang="en">Explore my work →</span><span data-lang="zh">查看项目 →</span>
+          </a>
+          <a class="button secondary" href="mailto:yawen_zuo76@163.com">
+            <span data-lang="en">Start a conversation</span><span data-lang="zh">与我联系</span>
+          </a>
+        </div>
       </div>
 
-      <div class="buttons">
-        <a class="button" href="mailto:yawen_zuo76@163.com">Contact Me</a>
-        <a class="button secondary" href="resume_en.pdf" target="_blank">View Resume</a>
-      </div>
-    </div>
-
-    <div class="hero-content lang-zh">
-      <h1>左雅文</h1>
-      <p>统计学 | 金融风险分析 | 数据分析</p>
-
-      <div class="tagline">
-        意向岗位：量化金融
-      </div>
-
-      <div class="buttons">
-        <a class="button" href="mailto:yawen_zuo76@163.com">联系我</a>
-        <a class="button secondary" href="resume_zh.pdf" target="_blank">查看简历</a>
+      <div class="portrait-wrap" aria-label="Portrait of Yawen Zuo">
+        <div class="portrait-frame">
+          <img src="profile.jpg" alt="Yawen Zuo" width="1279" height="1415" fetchpriority="high" />
+        </div>
+        <div class="data-card" aria-hidden="true">
+          <small data-lang="en">Competition result</small>
+          <small data-lang="zh">竞赛成绩</small>
+          <strong>Top 3 / 90</strong>
+          <span>↗ Machine Learning</span>
+        </div>
       </div>
     </div>
   </header>
 
-  <main>
-    <section>
-      <div class="lang-en">
-        <h2>About Me</h2>
-
-        <p>
-          Bachelor of Statistics student at the University of Toronto and incoming Master of Statistics
-          student at The University of Hong Kong.
-        </p>
-
-        <p>
-          My career path focuses on quantitative finance, financial risk analysis, and statistical modeling.
-          I have experience in data analysis, machine learning, bond markets, and capital markets.
-        </p>
-
-        <p>
-          I am interested in applying statistical thinking, financial analysis, and data-driven methods
-          to real-world business and risk management problems. My academic background in statistics and
-          mathematics has trained me to work with uncertainty, model complex relationships, and translate
-          data into practical insights.
-        </p>
-
-        <p>
-          Through internships in securities firms and big data development, I have gained hands-on experience
-          in credit analysis, bond issuance, risk assessment, market research, data processing, and business
-          reporting.
-        </p>
+  <main id="main-content">
+    <section class="section" id="about">
+      <div class="section-head reveal">
+        <div>
+          <span class="section-index">01 / ABOUT</span>
+          <h2 data-lang="en">Turning data into decisions.</h2>
+          <h2 data-lang="zh">让数据成为决策依据。</h2>
+        </div>
+        <p class="section-lead" data-lang="en">My background spans statistics, mathematics, capital markets, and data analytics. I translate uncertainty into practical models, risk insights, and clear business recommendations.</p>
+        <p class="section-lead" data-lang="zh">我的背景横跨统计、数学、资本市场与数据分析，擅长将不确定性转化为可执行的模型、风险洞察和业务建议。</p>
       </div>
 
-      <div class="lang-zh">
-        <h2>自我介绍</h2>
-
-        <p>
-          本科就读于多伦多大学统计方向，研究生就读于香港大学统计学硕士。
-        </p>
-
-        <p>
-          我的职业方向是量化金融、金融风险分析与统计建模，并具备数据分析、机器学习、
-          债券市场和资本市场相关经历。
-        </p>
-
-        <p>
-          我关注如何将统计思维、金融分析和数据驱动方法应用于实际商业与风险管理问题。
-          统计学和数学背景让我能够处理不确定性、建立模型、分析复杂关系，并将数据转化为可执行的业务洞察。
-        </p>
-
-        <p>
-          通过证券公司和大数据公司的实习经历，我积累了信用分析、债券发行、风险评估、市场研究、
-          数据处理和商业报告相关经验。
-        </p>
+      <div class="capability-grid">
+        <article class="capability reveal">
+          <span class="capability-number">01</span>
+          <h3 data-lang="en">Quantitative Modeling</h3>
+          <h3 data-lang="zh">量化建模</h3>
+          <p data-lang="en">Machine learning, time series, regression, and cross-validation for robust, interpretable analysis.</p>
+          <p data-lang="zh">运用机器学习、时间序列、回归和交叉验证，完成稳健且可解释的分析。</p>
+        </article>
+        <article class="capability reveal">
+          <span class="capability-number">02</span>
+          <h3 data-lang="en">Risk Analytics</h3>
+          <h3 data-lang="zh">风险分析</h3>
+          <p data-lang="en">Credit assessment, financial modeling, and policy research grounded in capital-market experience.</p>
+          <p data-lang="zh">结合资本市场实践，开展信用评估、财务建模和政策研究。</p>
+        </article>
+        <article class="capability reveal">
+          <span class="capability-number">03</span>
+          <h3 data-lang="en">Data Communication</h3>
+          <h3 data-lang="zh">数据沟通</h3>
+          <p data-lang="en">Clear dashboards, automated reports, and stakeholder-ready stories built from complex datasets.</p>
+          <p data-lang="zh">将复杂数据转化为清晰的仪表盘、自动化报告和面向业务的叙事。</p>
+        </article>
       </div>
     </section>
 
-    <section>
-      <div class="lang-en">
-        <h2>Education</h2>
-
-        <div class="education-item">
-          <div class="education-header">
-            <div>
-              <h3>University of Toronto</h3>
-              <div class="subtitle">Toronto, ON, Canada</div>
-            </div>
-            <div class="date">Sept 2022 - June 2026</div>
-          </div>
-
-          <p>
-            <strong>Honours Bachelor of Science</strong><br />
-            Applied Statistics Specialist<br />
-            Mathematical Minor
-          </p>
-
-          <p>
-            Relevant coursework: Probability, Regression Analysis, Time Series Analysis, Stochastic Processes,
-            Bayesian Statistics, Multivariate Statistics, Calculus, Differential Equations, Combinatorics,
-            Complex Variables, Nonlinear Dynamics and Chaos.
-          </p>
+    <section class="section" id="education">
+      <div class="section-head reveal">
+        <div>
+          <span class="section-index">02 / EDUCATION</span>
+          <h2 data-lang="en">Academic foundation.</h2>
+          <h2 data-lang="zh">学术基础。</h2>
         </div>
-
-        <div class="education-item">
-          <div class="education-header">
-            <div>
-              <h3>The University of Hong Kong</h3>
-              <div class="subtitle">Hong Kong</div>
-            </div>
-            <div class="date">Sept 2026 - June 2027</div>
-          </div>
-
-          <p>
-            <strong>Master of Statistics</strong><br />
-            Focus: Risk Management, Financial Data Analytics, and Statistical Modeling
-          </p>
-        </div>
+        <p class="section-lead" data-lang="en">Formal training in applied statistics and mathematics, now advancing toward risk management and financial data analytics at HKU.</p>
+        <p class="section-lead" data-lang="zh">以应用统计与数学为基础，现于香港大学进一步学习风险管理和金融数据分析。</p>
       </div>
 
-      <div class="lang-zh">
-        <h2>教育经历</h2>
-
-        <div class="education-item">
-          <div class="education-header">
-            <div>
-              <h3>多伦多大学</h3>
-              <div class="subtitle">加拿大安大略省多伦多</div>
-            </div>
-            <div class="date">2022年9月 - 2026年6月</div>
+      <div class="timeline reveal">
+        <article class="timeline-item">
+          <div class="timeline-date">2026 — 2027</div>
+          <div class="timeline-content">
+            <h3 data-lang="en">Master of Statistics</h3>
+            <h3 data-lang="zh">统计学硕士</h3>
+            <div class="timeline-subtitle" data-lang="en">The University of Hong Kong · Hong Kong</div>
+            <div class="timeline-subtitle" data-lang="zh">香港大学 · 中国香港</div>
+            <p data-lang="en">Current student · Focus on risk management, financial data analytics, and statistical modeling.</p>
+            <p data-lang="zh">在读 · 聚焦风险管理、金融数据分析与统计建模。</p>
           </div>
+        </article>
 
-          <p>
-            <strong>荣誉理学学士</strong><br />
-            统计学精修<br />
-            数学辅修
-          </p>
-
-          <p>
-            相关课程：概率论、回归分析、时间序列分析、随机过程、贝叶斯统计、多元统计、
-            微积分、微分方程、组合数学、复变函数、非线性动力学与混沌。
-          </p>
-        </div>
-
-        <div class="education-item">
-          <div class="education-header">
-            <div>
-              <h3>香港大学</h3>
-              <div class="subtitle">中国香港</div>
-            </div>
-            <div class="date">2026年9月 - 2027年6月</div>
+        <article class="timeline-item">
+          <div class="timeline-date">2022 — 2026</div>
+          <div class="timeline-content">
+            <h3 data-lang="en">Honours Bachelor of Science</h3>
+            <h3 data-lang="zh">荣誉理学学士</h3>
+            <div class="timeline-subtitle" data-lang="en">University of Toronto · Applied Statistics Specialist · Mathematics Minor</div>
+            <div class="timeline-subtitle" data-lang="zh">多伦多大学 · 应用统计精修 · 数学辅修</div>
+            <p data-lang="en">Coursework included probability, regression, time series, stochastic processes, Bayesian and multivariate statistics, differential equations, and nonlinear dynamics.</p>
+            <p data-lang="zh">课程涵盖概率论、回归分析、时间序列、随机过程、贝叶斯与多元统计、微分方程和非线性动力学。</p>
           </div>
-
-          <p>
-            <strong>统计学硕士</strong><br />
-            方向：风险管理、金融数据分析与统计建模
-          </p>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section>
-      <div class="lang-en">
-        <h2>Professional Experience</h2>
-
-        <div class="experience-item">
-          <div class="experience-header">
-            <div>
-              <h3>Teaching Assistant</h3>
-              <div class="subtitle">SavvyUni Teaching Institution · Mississauga, Canada</div>
-            </div>
-            <div class="date">Sept 2024 - Present</div>
-          </div>
-
-          <ul>
-            <li>Collaborated with faculty members to refine lesson plans and teaching materials.</li>
-            <li>Facilitated weekly tutorials by explaining advanced statistical and mathematical concepts clearly.</li>
-            <li>Supported students outside class by answering questions and clarifying coursework expectations.</li>
-          </ul>
+    <section class="section" id="experience">
+      <div class="section-head reveal">
+        <div>
+          <span class="section-index">03 / EXPERIENCE</span>
+          <h2 data-lang="en">Experience across markets and data.</h2>
+          <h2 data-lang="zh">连接市场与数据的经历。</h2>
         </div>
-
-        <div class="experience-item">
-          <div class="experience-header">
-            <div>
-              <h3>Capital Markets Intern</h3>
-              <div class="subtitle">Shenwan & Hongyuan Securities Co., Ltd. · Jinan, China</div>
-            </div>
-            <div class="date">Jul 2025 - Sept 2025</div>
-          </div>
-
-          <ul>
-            <li>Supported bond issuance projects, including ABS, convertible bonds, innovation bonds, and green bonds.</li>
-            <li>Prepared financial analyses, project proposals, and compliance materials.</li>
-            <li>Conducted market and policy research to evaluate credit risk, pricing strategies, and investment potential.</li>
-          </ul>
-        </div>
-
-        <div class="experience-item">
-          <div class="experience-header">
-            <div>
-              <h3>Quantitative Finance Intern</h3>
-              <div class="subtitle">Sinolink Securities Co., Ltd. · Jinan, China</div>
-            </div>
-            <div class="date">May 2024 - Jul 2024</div>
-          </div>
-
-          <ul>
-            <li>Supported bond issuance projects by drafting proposals, legal opinions, and compliance filings.</li>
-            <li>Built and reviewed Excel-based financial models for credit analysis, risk assessment, and yield projection.</li>
-            <li>Prepared data-driven documentation for fundraising bidding projects, two of which were successfully awarded.</li>
-          </ul>
-        </div>
-
-        <div class="experience-item">
-          <div class="experience-header">
-            <div>
-              <h3>Data Analyst Intern</h3>
-              <div class="subtitle">Yantai Big Data Development Group Co., Ltd. · Yantai, China</div>
-            </div>
-            <div class="date">Jul 2023 - Aug 2023</div>
-          </div>
-
-          <ul>
-            <li>Processed and validated large datasets using Python, SQL, and R.</li>
-            <li>Applied statistical modeling and exploratory data analysis in R and SAS.</li>
-            <li>Developed automated reporting workflows with Excel and Tableau.</li>
-            <li>Created technical documentation and flow charts for a smart transportation program.</li>
-          </ul>
-        </div>
+        <p class="section-lead" data-lang="en">Hands-on work in teaching, bond issuance, credit analysis, market research, statistical analysis, and automated reporting.</p>
+        <p class="section-lead" data-lang="zh">实践覆盖教学、债券发行、信用分析、市场研究、统计分析和自动化报告。</p>
       </div>
 
-      <div class="lang-zh">
-        <h2>实习与工作经历</h2>
-
-        <div class="experience-item">
-          <div class="experience-header">
-            <div>
-              <h3>助教</h3>
-              <div class="subtitle">SavvyUni Teaching Institution · 加拿大密西沙加</div>
-            </div>
-            <div class="date">2024年9月 - 至今</div>
+      <div class="timeline reveal">
+        <article class="timeline-item">
+          <div class="timeline-date" data-lang="en">Sep 2024 — Present</div>
+          <div class="timeline-date" data-lang="zh">2024.09 — 至今</div>
+          <div class="timeline-content">
+            <h3 data-lang="en">Teaching Assistant</h3><h3 data-lang="zh">助教</h3>
+            <div class="timeline-subtitle" data-lang="en">SavvyUni Teaching Institution · Mississauga, Canada</div>
+            <div class="timeline-subtitle" data-lang="zh">SavvyUni Teaching Institution · 加拿大密西沙加</div>
+            <ul data-lang="en"><li>Refine lesson plans and explain advanced statistical and mathematical concepts in weekly tutorials.</li><li>Support students with coursework expectations, problem solving, and clear technical communication.</li></ul>
+            <ul data-lang="zh"><li>优化课程计划，并在每周辅导中讲解进阶统计与数学概念。</li><li>为学生提供课程答疑、解题支持和清晰的技术沟通。</li></ul>
           </div>
+        </article>
 
-          <ul>
-            <li>与教师团队合作优化课程计划和教学材料。</li>
-            <li>每周组织辅导课，将统计和数学中的复杂概念转化为清晰、易理解的讲解。</li>
-            <li>为学生提供课后答疑和学习支持，帮助其理解课程要求与知识重点。</li>
-          </ul>
-        </div>
-
-        <div class="experience-item">
-          <div class="experience-header">
-            <div>
-              <h3>资本市场实习生</h3>
-              <div class="subtitle">申万宏源证券有限公司 · 中国济南</div>
-            </div>
-            <div class="date">2025年7月 - 2025年9月</div>
+        <article class="timeline-item">
+          <div class="timeline-date" data-lang="en">Jul — Sep 2025</div>
+          <div class="timeline-date" data-lang="zh">2025.07 — 09</div>
+          <div class="timeline-content">
+            <h3 data-lang="en">Capital Markets Intern</h3><h3 data-lang="zh">资本市场实习生</h3>
+            <div class="timeline-subtitle" data-lang="en">Shenwan & Hongyuan Securities · Jinan, China</div>
+            <div class="timeline-subtitle" data-lang="zh">申万宏源证券 · 中国济南</div>
+            <ul data-lang="en"><li>Supported ABS, convertible, innovation, and green-bond issuance projects.</li><li>Prepared financial analyses and researched credit risk, pricing, markets, and policy.</li></ul>
+            <ul data-lang="zh"><li>参与 ABS、可转债、创新债和绿色债等债券发行项目。</li><li>完成财务分析，并研究信用风险、定价、市场与政策。</li></ul>
           </div>
+        </article>
 
-          <ul>
-            <li>参与 ABS、可转债、创新债和绿色债等债券发行项目。</li>
-            <li>协助准备财务分析、项目建议书和合规材料。</li>
-            <li>开展市场与政策研究，用于评估信用风险、定价策略和投资潜力。</li>
-          </ul>
-        </div>
-
-        <div class="experience-item">
-          <div class="experience-header">
-            <div>
-              <h3>量化金融实习生</h3>
-              <div class="subtitle">国金证券股份有限公司 · 中国济南</div>
-            </div>
-            <div class="date">2024年5月 - 2024年7月</div>
+        <article class="timeline-item">
+          <div class="timeline-date" data-lang="en">May — Jul 2024</div>
+          <div class="timeline-date" data-lang="zh">2024.05 — 07</div>
+          <div class="timeline-content">
+            <h3 data-lang="en">Quantitative Finance Intern</h3><h3 data-lang="zh">量化金融实习生</h3>
+            <div class="timeline-subtitle" data-lang="en">Sinolink Securities · Jinan, China</div>
+            <div class="timeline-subtitle" data-lang="zh">国金证券 · 中国济南</div>
+            <ul data-lang="en"><li>Built and reviewed Excel models for credit analysis, risk assessment, and yield projection.</li><li>Prepared data materials for fundraising bids; two supported projects were successfully awarded.</li></ul>
+            <ul data-lang="zh"><li>搭建和检查用于信用分析、风险评估和收益预测的 Excel 模型。</li><li>准备融资招标数据材料，参与支持的两个项目成功中标。</li></ul>
           </div>
+        </article>
 
-          <ul>
-            <li>支持债券发行项目，参与项目方案、法律意见书和合规文件的撰写。</li>
-            <li>搭建和检查 Excel 财务模型，用于信用分析、风险评估和收益预测。</li>
-            <li>参与融资招标项目的数据材料准备，其中两个项目成功中标。</li>
-          </ul>
-        </div>
-
-        <div class="experience-item">
-          <div class="experience-header">
-            <div>
-              <h3>数据分析实习生</h3>
-              <div class="subtitle">烟台市大数据发展集团有限公司 · 中国烟台</div>
-            </div>
-            <div class="date">2023年7月 - 2023年8月</div>
+        <article class="timeline-item">
+          <div class="timeline-date" data-lang="en">Jul — Aug 2023</div>
+          <div class="timeline-date" data-lang="zh">2023.07 — 08</div>
+          <div class="timeline-content">
+            <h3 data-lang="en">Data Analyst Intern</h3><h3 data-lang="zh">数据分析实习生</h3>
+            <div class="timeline-subtitle" data-lang="en">Yantai Big Data Development Group · Yantai, China</div>
+            <div class="timeline-subtitle" data-lang="zh">烟台市大数据发展集团 · 中国烟台</div>
+            <ul data-lang="en"><li>Processed and validated large datasets with Python, SQL, and R.</li><li>Applied statistical analysis and automated reporting with R, SAS, Excel, and Tableau.</li></ul>
+            <ul data-lang="zh"><li>使用 Python、SQL 和 R 处理并验证大型数据集。</li><li>使用 R、SAS、Excel 和 Tableau 完成统计分析与自动化报告。</li></ul>
           </div>
-
-          <ul>
-            <li>使用 Python、SQL 和 R 处理并验证大型数据集。</li>
-            <li>使用 R 和 SAS 进行统计建模与探索性数据分析。</li>
-            <li>使用 Excel 和 Tableau 搭建自动化报告流程，提升指标可视化和沟通效率。</li>
-            <li>为智慧交通项目制作技术流程图和项目文档。</li>
-          </ul>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section>
-      <div class="lang-en">
-        <h2>Project Experience</h2>
-
-        <div class="project-item">
-          <div class="project-header">
-            <div>
-              <h3>Kaggle Machine Learning Competition</h3>
-            </div>
-            <div class="date">Nov 2024 - Dec 2024</div>
-          </div>
-
-          <ul>
-            <li>Conducted exploratory data analysis on a high-dimensional dataset.</li>
-            <li>Applied log transformation and feature standardization to improve model performance.</li>
-            <li>Used Bagging and LASSO regression with cross-validation for feature selection and interpretation.</li>
-            <li>Built an ensemble Random Forest model and achieved a top 3/90 ranking in the competition.</li>
-          </ul>
+    <section class="section" id="projects">
+      <div class="section-head reveal">
+        <div>
+          <span class="section-index">04 / SELECTED WORK</span>
+          <h2 data-lang="en">Projects with measurable outcomes.</h2>
+          <h2 data-lang="zh">用结果说话的项目。</h2>
         </div>
-
-        <div class="project-item">
-          <div class="project-header">
-            <div>
-              <h3>Business Case Project Member</h3>
-              <div class="subtitle">Impact Origin, Workplace Education Program · Toronto, Canada</div>
-            </div>
-            <div class="date">Oct 2025 - Nov 2025</div>
-          </div>
-
-          <ul>
-            <li>Conducted weekly industry and business analyses on the technology sector, focusing on economic trends, financial performance, and consumer behavior.</li>
-            <li>Completed case projects on North American companies, evaluating operations, financials, and marketing strategies.</li>
-            <li>Participated in client-facing strategy discussions and delivered a final business case presentation.</li>
-          </ul>
-        </div>
+        <p class="section-lead" data-lang="en">Selected work demonstrating modeling, interpretation, industry research, and decision-ready communication.</p>
+        <p class="section-lead" data-lang="zh">精选项目展示建模、解释、行业研究和面向决策的沟通能力。</p>
       </div>
 
-      <div class="lang-zh">
-        <h2>项目经历</h2>
+      <div class="projects-grid">
+        <article class="project-card featured reveal">
+          <span class="project-kicker" data-lang="en">Machine Learning · 2024</span>
+          <span class="project-kicker" data-lang="zh">机器学习 · 2024</span>
+          <h3 data-lang="en">Kaggle Machine Learning Competition</h3>
+          <h3 data-lang="zh">Kaggle 机器学习竞赛</h3>
+          <div class="metric"><strong>Top 3</strong><span data-lang="en">among 90 teams</span><span data-lang="zh">共 90 组</span></div>
+          <p data-lang="en">Built a Random Forest ensemble after high-dimensional EDA, log transformation, standardization, and cross-validated Bagging and LASSO feature selection.</p>
+          <p data-lang="zh">完成高维探索分析、对数变换和标准化，并通过交叉验证结合 Bagging、LASSO 特征选择与随机森林集成建模。</p>
+          <div class="tags"><span class="tag">Random Forest</span><span class="tag">LASSO</span><span class="tag">Bagging</span><span class="tag">Cross-validation</span></div>
+        </article>
 
-        <div class="project-item">
-          <div class="project-header">
-            <div>
-              <h3>Kaggle 机器学习竞赛</h3>
-            </div>
-            <div class="date">2024年11月 - 2024年12月</div>
-          </div>
-
-          <ul>
-            <li>对高维数据集进行探索性数据分析。</li>
-            <li>对目标变量进行对数变换，并对特征进行标准化以提升模型表现。</li>
-            <li>使用 Bagging 和 LASSO 回归结合交叉验证进行特征选择和模型解释。</li>
-            <li>构建集成随机森林模型，并在课程竞赛中取得前 3/90 名成绩。</li>
-          </ul>
-        </div>
-
-        <div class="project-item">
-          <div class="project-header">
-            <div>
-              <h3>商业案例项目成员</h3>
-              <div class="subtitle">Impact Origin, Workplace Education Program · 加拿大多伦多</div>
-            </div>
-            <div class="date">2025年10月 - 2025年11月</div>
-          </div>
-
-          <ul>
-            <li>针对科技行业进行每周行业与商业分析，研究经济趋势、财务表现和消费者行为。</li>
-            <li>完成北美公司案例项目，从运营、财务和市场营销角度进行分析。</li>
-            <li>参与客户导向的战略讨论，并完成最终商业案例展示。</li>
-          </ul>
-        </div>
+        <article class="project-card reveal">
+          <span class="project-kicker" data-lang="en">Business Strategy · 2025</span>
+          <span class="project-kicker" data-lang="zh">商业策略 · 2025</span>
+          <h3 data-lang="en">North American Technology Business Cases</h3>
+          <h3 data-lang="zh">北美科技行业商业案例</h3>
+          <p data-lang="en">Evaluated company operations, financial performance, economic trends, consumer behavior, and marketing strategy, culminating in a client-facing case presentation.</p>
+          <p data-lang="zh">从运营、财务表现、经济趋势、消费者行为和市场策略分析北美公司，并完成面向客户的案例展示。</p>
+          <div class="tags"><span class="tag">Industry Research</span><span class="tag">Financial Analysis</span><span class="tag">Strategy</span></div>
+        </article>
       </div>
     </section>
 
-    <section>
-      <div class="lang-en">
-        <h2>Skills</h2>
-
-        <div class="skills">
-          <span class="skill">Python</span>
-          <span class="skill">R</span>
-          <span class="skill">SQL</span>
-          <span class="skill">SAS</span>
-          <span class="skill">Tableau</span>
-          <span class="skill">Excel</span>
-          <span class="skill">PowerPoint</span>
-          <span class="skill">LaTeX</span>
-          <span class="skill">Statistical Modeling</span>
-          <span class="skill">Machine Learning</span>
-          <span class="skill">Financial Analysis</span>
-          <span class="skill">Risk Assessment</span>
-          <span class="skill">Data Visualization</span>
-          <span class="skill">Credit Analysis</span>
+    <section class="section" id="skills">
+      <div class="section-head reveal">
+        <div>
+          <span class="section-index">05 / TOOLKIT</span>
+          <h2 data-lang="en">A focused analytical toolkit.</h2>
+          <h2 data-lang="zh">聚焦分析的工具体系。</h2>
         </div>
+        <p class="section-lead" data-lang="en">Tools are grouped by how I use them—from data preparation and modeling to risk analysis and stakeholder communication.</p>
+        <p class="section-lead" data-lang="zh">技能按实际用途分组，覆盖数据准备、建模、风险分析和业务沟通。</p>
       </div>
 
-      <div class="lang-zh">
-        <h2>技能</h2>
+      <div class="skills-grid reveal">
+        <div class="skill-group"><h3 data-lang="en">Programming</h3><h3 data-lang="zh">编程</h3><ul><li>Python</li><li>R</li><li>SQL</li><li>MATLAB</li></ul></div>
+        <div class="skill-group"><h3 data-lang="en">Analytics</h3><h3 data-lang="zh">分析工具</h3><ul><li>SAS</li><li>Tableau</li><li>Excel</li><li>Data Visualization</li></ul></div>
+        <div class="skill-group"><h3 data-lang="en">Modeling</h3><h3 data-lang="zh">建模</h3><ul><li>Machine Learning</li><li>Time Series</li><li>Statistical Modeling</li><li>Regression Analysis</li></ul></div>
+        <div class="skill-group"><h3 data-lang="en">Finance</h3><h3 data-lang="zh">金融</h3><ul><li>Credit Analysis</li><li>Financial Analysis</li><li>Risk Assessment</li><li>Capital Markets</li></ul></div>
+      </div>
 
-        <div class="skills">
-          <span class="skill">Python</span>
-          <span class="skill">R</span>
-          <span class="skill">SQL</span>
-          <span class="skill">SAS</span>
-          <span class="skill">Tableau</span>
-          <span class="skill">Excel</span>
-          <span class="skill">PowerPoint</span>
-          <span class="skill">LaTeX</span>
-          <span class="skill">统计建模</span>
-          <span class="skill">机器学习</span>
-          <span class="skill">金融分析</span>
-          <span class="skill">风险评估</span>
-          <span class="skill">数据可视化</span>
-          <span class="skill">信用分析</span>
-        </div>
+      <div class="cert-row reveal" aria-label="Certifications">
+        <div class="cert"><strong>Tableau Desktop Specialist</strong><small data-lang="en">Issued Jan 2025</small><small data-lang="zh">2025 年 1 月获得</small></div>
+        <div class="cert"><strong>SQL for Data Science</strong><small data-lang="en">Issued Jan 2025</small><small data-lang="zh">2025 年 1 月获得</small></div>
+        <div class="cert"><strong>SAS Base Program</strong><small data-lang="en">Issued Jan 2025</small><small data-lang="zh">2025 年 1 月获得</small></div>
+        <div class="cert"><strong>MATLAB Basic Certification</strong><small data-lang="en">Issued Jan 2025</small><small data-lang="zh">2025 年 1 月获得</small></div>
       </div>
     </section>
 
-    <section>
-      <div class="lang-en">
-        <h2>Certifications</h2>
-
-        <div class="grid">
-          <div class="card">
-            <h3>Tableau Desktop Specialist</h3>
-            <p>Issued Jan 2025</p>
-          </div>
-
-          <div class="card">
-            <h3>SQL for Data Science</h3>
-            <p>Issued Jan 2025</p>
-          </div>
-
-          <div class="card">
-            <h3>SAS Base Program</h3>
-            <p>Issued Jan 2025</p>
-          </div>
-
-          <div class="card">
-            <h3>MATLAB Basic Certification</h3>
-            <p>Issued Jan 2025</p>
-          </div>
+    <section class="section" id="contact">
+      <div class="contact-panel reveal">
+        <div>
+          <span class="section-index">06 / CONTACT</span>
+          <h2 data-lang="en">Let’s turn complex data into clear decisions.</h2>
+          <h2 data-lang="zh">让复杂数据转化为清晰决策。</h2>
+          <p class="contact-copy" data-lang="en">Open to opportunities and conversations in quantitative finance, risk analytics, data analytics, financial analysis, and business intelligence.</p>
+          <p class="contact-copy" data-lang="zh">期待量化金融、风险分析、数据分析、金融分析与商业智能方向的机会与交流。</p>
         </div>
-      </div>
-
-      <div class="lang-zh">
-        <h2>证书</h2>
-
-        <div class="grid">
-          <div class="card">
-            <h3>Tableau Desktop Specialist</h3>
-            <p>2025年1月获得</p>
-          </div>
-
-          <div class="card">
-            <h3>SQL for Data Science</h3>
-            <p>2025年1月获得</p>
-          </div>
-
-          <div class="card">
-            <h3>SAS Base Program</h3>
-            <p>2025年1月获得</p>
-          </div>
-
-          <div class="card">
-            <h3>MATLAB Basic Certification</h3>
-            <p>2025年1月获得</p>
-          </div>
+        <div class="contact-links">
+          <a href="mailto:yawen_zuo76@163.com"><span>Email</span><span>↗</span></a>
+          <a href="https://github.com/Zuozuo-76" target="_blank" rel="noopener noreferrer"><span>GitHub</span><span>↗</span></a>
+          <a id="resume-contact" href="resume_en.pdf" download><span data-lang="en">Download resume</span><span data-lang="zh">下载简历</span><span>↓</span></a>
         </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="lang-en">
-        <h2>Contact</h2>
-
-        <p>
-          I am open to opportunities in quantitative finance, financial risk analysis, data analytics,
-          financial analysis, and business intelligence.
-        </p>
-
-        <p>
-          Email:
-          <a href="mailto:yawen_zuo76@163.com">yawen_zuo76@163.com</a>
-        </p>
-
-        <p>
-          GitHub:
-          <a href="https://github.com/Zuozuo-76" target="_blank">github.com/Zuozuo-76</a>
-        </p>
-      </div>
-
-      <div class="lang-zh">
-        <h2>联系方式</h2>
-
-        <p>
-          我关注量化金融、金融风险分析、数据分析、金融分析和商业智能相关机会。
-        </p>
-
-        <p>
-          邮箱：
-          <a href="mailto:yawen_zuo76@163.com">yawen_zuo76@163.com</a>
-        </p>
-
-        <p>
-          GitHub：
-          <a href="https://github.com/Zuozuo-76" target="_blank">github.com/Zuozuo-76</a>
-        </p>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="lang-en">
-      © 2026 Yawen Zuo. All rights reserved.
-    </div>
-
-    <div class="lang-zh">
-      © 2026 左雅文。保留所有权利。
-    </div>
+    <span data-lang="en">© 2026 Yawen Zuo. Built with clarity and curiosity.</span>
+    <span data-lang="zh">© 2026 左雅文。以清晰与好奇心构建。</span>
+    <a href="#top"><span data-lang="en">Back to top ↑</span><span data-lang="zh">返回顶部 ↑</span></a>
   </footer>
 
   <script>
+    const body = document.body;
+    const root = document.documentElement;
+    const languageToggle = document.getElementById('language-toggle');
+    const themeToggle = document.getElementById('theme-toggle');
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    const resumeNav = document.getElementById('resume-nav');
+    const resumeContact = document.getElementById('resume-contact');
+
     function setLanguage(language) {
-      const englishContent = document.querySelectorAll('.lang-en');
-      const chineseContent = document.querySelectorAll('.lang-zh');
-
-      const englishButton = document.getElementById('btn-en');
-      const chineseButton = document.getElementById('btn-zh');
-
-      if (language === 'en') {
-        englishContent.forEach(function(item) {
-          item.style.display = 'block';
-        });
-
-        chineseContent.forEach(function(item) {
-          item.style.display = 'none';
-        });
-
-        englishButton.classList.add('active');
-        chineseButton.classList.remove('active');
-
-        document.documentElement.lang = 'en';
-        localStorage.setItem('siteLanguage', 'en');
-      } else {
-        englishContent.forEach(function(item) {
-          item.style.display = 'none';
-        });
-
-        chineseContent.forEach(function(item) {
-          item.style.display = 'block';
-        });
-
-        englishButton.classList.remove('active');
-        chineseButton.classList.add('active');
-
-        document.documentElement.lang = 'zh-CN';
-        localStorage.setItem('siteLanguage', 'zh');
-      }
+      const isChinese = language === 'zh';
+      body.dataset.language = isChinese ? 'zh' : 'en';
+      root.lang = isChinese ? 'zh-CN' : 'en';
+      languageToggle.textContent = isChinese ? 'EN' : '中文';
+      languageToggle.setAttribute('aria-label', isChinese ? 'Switch to English' : '切换至中文');
+      languageToggle.setAttribute('aria-pressed', String(isChinese));
+      resumeNav.href = isChinese ? 'resume_zh.pdf' : 'resume_en.pdf';
+      resumeContact.href = isChinese ? 'resume_zh.pdf' : 'resume_en.pdf';
+      document.title = isChinese ? '左雅文 | 量化金融与风险分析' : 'Yawen Zuo | Quantitative Finance & Risk Analytics';
+      document.querySelector('meta[name="description"]').content = isChinese
+        ? '左雅文的双语作品集，聚焦量化金融、风险分析、统计建模与数据科学。'
+        : "Yawen Zuo's bilingual portfolio in quantitative finance, risk analytics, statistical modeling, and data science.";
+      localStorage.setItem('siteLanguage', isChinese ? 'zh' : 'en');
     }
 
-    const savedLanguage = localStorage.getItem('siteLanguage') || 'en';
-    setLanguage(savedLanguage);
+    function setTheme(theme) {
+      const isDark = theme === 'dark';
+      root.dataset.theme = isDark ? 'dark' : 'light';
+      themeToggle.textContent = isDark ? '☀' : '◐';
+      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      themeToggle.setAttribute('aria-pressed', String(isDark));
+      localStorage.setItem('siteTheme', isDark ? 'dark' : 'light');
+    }
+
+    languageToggle.addEventListener('click', () => {
+      setLanguage(body.dataset.language === 'en' ? 'zh' : 'en');
+    });
+
+    themeToggle.addEventListener('click', () => {
+      setTheme(root.dataset.theme === 'light' ? 'dark' : 'light');
+    });
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      menuToggle.textContent = isOpen ? '×' : '☰';
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+      });
+    });
+
+    const preferredLanguage = localStorage.getItem('siteLanguage')
+      || (navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en');
+    const preferredTheme = localStorage.getItem('siteTheme')
+      || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    setLanguage(preferredLanguage);
+    setTheme(preferredTheme);
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+
+    const sections = document.querySelectorAll('main section[id]');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navAnchors.forEach((anchor) => {
+            anchor.classList.toggle('active', anchor.getAttribute('href') === `#${entry.target.id}`);
+          });
+        }
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    sections.forEach((section) => sectionObserver.observe(section));
   </script>
 </body>
 </html>
