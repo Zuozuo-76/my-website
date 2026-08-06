@@ -20,6 +20,8 @@ A bilingual, responsive portfolio for quantitative finance, risk analytics, stat
 ├── headshot.jpg     # Professional hero portrait
 ├── profile.jpg      # Lifestyle image in the About section
 ├── favicon.png      # Browser and sharing icon
+├── quant_turnover.png     # Quant strategy turnover and return comparison
+├── quant_lstm_models.png  # Walk-forward out-of-sample model comparison
 ├── resume_en.pdf    # English resume
 └── resume_zh.pdf    # Chinese resume
 ```

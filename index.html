@@ -739,6 +739,97 @@
       color: #d8e6ec;
     }
 
+    .quant-project {
+      grid-column: 1 / -1;
+      min-height: 0;
+      padding: 0;
+    }
+
+    .quant-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      min-height: 620px;
+    }
+
+    .quant-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(34px, 5vw, 60px);
+    }
+
+    .quant-project h3 {
+      margin: 22px 0 18px;
+    }
+
+    .quant-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .quant-stat {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface-soft);
+    }
+
+    .quant-stat strong {
+      display: block;
+      color: var(--teal-500);
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .quant-stat span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .research-note {
+      margin-top: 22px;
+      padding-left: 14px;
+      border-left: 3px solid var(--teal-500);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .quant-visuals {
+      display: grid;
+      align-content: center;
+      gap: 14px;
+      padding: 28px;
+      background: linear-gradient(145deg, var(--navy-900), #103b50);
+    }
+
+    .quant-visuals figure {
+      margin: 0;
+      overflow: hidden;
+      padding: 10px 10px 8px;
+      border-radius: 16px;
+      background: white;
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.2);
+    }
+
+    .quant-visuals img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .quant-visuals figcaption {
+      padding: 7px 6px 2px;
+      color: #4c5d69;
+      font-size: 11px;
+      font-weight: 750;
+    }
+
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -925,6 +1016,8 @@
       .cert-row { grid-template-columns: repeat(2, 1fr); }
       .projects-grid { grid-template-columns: 1fr; }
       .about-story { grid-template-columns: 0.9fr 1.1fr; }
+      .quant-layout { grid-template-columns: 1fr; }
+      .quant-visuals { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 720px) {
@@ -962,6 +1055,9 @@
       .timeline-content::before { left: -37px; }
 
       .project-card { min-height: auto; padding: 28px; }
+      .quant-project { padding: 0; }
+      .quant-visuals { grid-template-columns: 1fr; padding: 18px; }
+      .quant-stats { grid-template-columns: repeat(2, 1fr); }
       .contact-panel { grid-template-columns: 1fr; gap: 34px; padding: 34px 26px; }
       footer { flex-direction: column; }
     }
@@ -1147,10 +1243,10 @@
           <div class="timeline-date" data-lang="zh">2026.07 — 08</div>
           <div class="timeline-content">
             <h3 data-lang="en">Quantitative Trading Intern</h3><h3 data-lang="zh">量化交易实习生</h3>
-            <div class="timeline-subtitle" data-lang="en">Jiangsu Zhaoxin Private Fund Management Co., Ltd. · Jiangsu, China</div>
-            <div class="timeline-subtitle" data-lang="zh">江苏兆信私募基金管理有限公司 · 中国江苏</div>
-            <ul data-lang="en"><li>Researched quantitative trading strategies and processed and cleaned financial-market data with Python.</li><li>Supported indicator development, historical backtesting, and performance evaluation; monitored returns, drawdowns, and risk metrics to inform strategy optimization.</li></ul>
-            <ul data-lang="zh"><li>参与量化交易策略研究，使用 Python 处理和清洗金融市场数据。</li><li>协助完成策略指标构建、历史回测与绩效评估，跟踪收益、回撤和风险指标，为策略优化提供支持。</li></ul>
+            <div class="timeline-subtitle" data-lang="en">Jiangsu Zhaoxin Private Fund Management Co., Ltd. · Nanjing, China</div>
+            <div class="timeline-subtitle" data-lang="zh">江苏兆信私募基金管理有限公司 · 中国南京</div>
+            <ul data-lang="en"><li>Used Python for financial-market data cleaning, outlier handling, and downsampling to build minute-level analysis datasets.</li><li>Researched quantitative factors and strategies, conducted backtests and return, drawdown, and risk analysis, and built an LSTM model for minute-level price prediction.</li></ul>
+            <ul data-lang="zh"><li>使用 Python 完成金融市场数据清洗、异常值处理及降采样，构建适用于分钟级行情分析的数据集。</li><li>参与量化因子挖掘与策略研究，完成历史回测及收益、回撤、风险指标分析，并搭建 LSTM 模型进行分钟级价格预测。</li></ul>
           </div>
         </article>
 
@@ -1158,11 +1254,11 @@
           <div class="timeline-date" data-lang="en">May — Jul 2026</div>
           <div class="timeline-date" data-lang="zh">2026.05 — 07</div>
           <div class="timeline-content">
-            <h3 data-lang="en">Bond Department II Intern</h3><h3 data-lang="zh">债券二部实习生</h3>
+            <h3 data-lang="en">Bond Department IV Intern</h3><h3 data-lang="zh">债券四部实习生</h3>
             <div class="timeline-subtitle" data-lang="en">Sinolink Securities Co., Ltd. · Jinan, China</div>
             <div class="timeline-subtitle" data-lang="zh">国金证券股份有限公司 · 中国济南</div>
-            <ul data-lang="en"><li>Supported bond issuance and underwriting projects, including prospectuses, lead-underwriter verification reports, and compliance submissions.</li><li>Organized issuer financial and operating data; analyzed solvency, credit risk, and use of proceeds, and completed Excel-based calculations and document checks.</li></ul>
-            <ul data-lang="zh"><li>参与债券发行及承销项目，协助撰写募集说明书、主承销商核查意见及合规申报材料。</li><li>整理发行人财务与经营数据，分析偿债能力、信用风险及募集资金用途，并使用 Excel 完成财务测算与文件核验。</li></ul>
+            <ul data-lang="en"><li>Supported bond issuance and underwriting projects, including prospectuses, lead-underwriter verification reports, compliance submissions, and project bids.</li><li>Organized issuer financial and operating data; analyzed solvency, credit risk, and use of proceeds, and completed Excel calculations, data verification, and working-paper preparation.</li></ul>
+            <ul data-lang="zh"><li>参与债券发行与承销项目，协助撰写募集说明书、主承销商核查意见、合规申报材料及项目投标书。</li><li>整理发行人财务与经营数据，分析偿债能力、信用风险及募集资金用途，并使用 Excel 完成财务测算、数据核验与底稿整理。</li></ul>
           </div>
         </article>
 
@@ -1228,6 +1324,43 @@
       </div>
 
       <div class="projects-grid">
+        <article class="project-card quant-project reveal">
+          <div class="quant-layout">
+            <div class="quant-copy">
+              <span class="project-kicker" data-lang="en">Quantitative Research · 2026</span>
+              <span class="project-kicker" data-lang="zh">量化研究 · 2026</span>
+              <h3 data-lang="en">Execution-Aware Multi-Factor Equity Research</h3>
+              <h3 data-lang="zh">执行约束下的多因子量化研究</h3>
+              <p data-lang="en">Built an end-to-end pipeline across 302 trading days and 300 stocks: tick-to-minute and daily data processing, seven-factor evaluation, t+1 execution, fees, slippage and market impact, turnover control, and a PyTorch walk-forward LSTM.</p>
+              <p data-lang="zh">围绕 302 个交易日和 300 只股票搭建端到端流程，覆盖逐笔数据清洗与分钟／日频聚合、七因子评价、t+1 执行、手续费与滑点冲击、换手控制，以及 PyTorch walk-forward LSTM。</p>
+
+              <div class="quant-stats">
+                <div class="quant-stat"><strong>90,600</strong><span data-lang="en">daily stock rows</span><span data-lang="zh">日频股票记录</span></div>
+                <div class="quant-stat"><strong>7</strong><span data-lang="en">evaluated factors</span><span data-lang="zh">个评价因子</span></div>
+                <div class="quant-stat"><strong>8.76%</strong><span data-lang="en">optimized daily one-way turnover</span><span data-lang="zh">优化后日均单边换手</span></div>
+                <div class="quant-stat"><strong>83,880</strong><span data-lang="en">strict OOS LSTM predictions</span><span data-lang="zh">严格样本外 LSTM 预测</span></div>
+              </div>
+
+              <div class="research-note" data-lang="en">Time-ordered holdout check: -4.95% strategy return vs -10.44% benchmark, for +6.13% active return. This is a quasi-OOS robustness check; the LSTM uses non-overlapping strict OOS test folds and reached ROC AUC 0.6465.</div>
+              <div class="research-note" data-lang="zh">时间有序后 20% 检查：策略收益 -4.95%，基准 -10.44%，主动收益 +6.13%。该结果属于准样本外稳健性检查；LSTM 使用互不重叠的严格样本外测试窗口，ROC AUC 为 0.6465。</div>
+              <div class="tags"><span class="tag">Python</span><span class="tag">PyTorch LSTM</span><span class="tag">Factor Research</span><span class="tag">Backtesting</span><span class="tag">Walk-forward</span></div>
+            </div>
+
+            <div class="quant-visuals">
+              <figure>
+                <img src="quant_turnover.png" alt="Comparison of turnover policies and net returns after transaction costs" width="2000" height="768" loading="lazy" />
+                <figcaption data-lang="en">Turnover policy and cost-aware return comparison</figcaption>
+                <figcaption data-lang="zh">换手政策与成本后收益对比</figcaption>
+              </figure>
+              <figure>
+                <img src="quant_lstm_models.png" alt="Walk-forward out-of-sample comparison of LSTM and baseline models" width="1520" height="768" loading="lazy" />
+                <figcaption data-lang="en">Strict walk-forward out-of-sample model comparison</figcaption>
+                <figcaption data-lang="zh">严格 walk-forward 样本外模型比较</figcaption>
+              </figure>
+            </div>
+          </div>
+        </article>
+
         <article class="project-card featured reveal">
           <span class="project-kicker" data-lang="en">Machine Learning · 2024</span>
           <span class="project-kicker" data-lang="zh">机器学习 · 2024</span>
