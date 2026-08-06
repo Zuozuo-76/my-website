@@ -17,7 +17,8 @@ A bilingual, responsive portfolio for quantitative finance, risk analytics, stat
 .
 ├── index.html       # Complete static website: content, styles, and interactions
 ├── 404.html         # GitHub Pages fallback page
-├── profile.jpg      # Hero portrait
+├── headshot.jpg     # Professional hero portrait
+├── profile.jpg      # Lifestyle image in the About section
 ├── favicon.png      # Browser and sharing icon
 ├── resume_en.pdf    # English resume
 └── resume_zh.pdf    # Chinese resume
