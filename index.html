@@ -672,6 +672,40 @@
       margin: 5px 0;
     }
 
+    .supporting-experience {
+      margin-top: 16px;
+      padding-top: 28px;
+      border-top: 1px dashed var(--line);
+    }
+
+    .supporting-experience .timeline-content::before {
+      background: var(--muted);
+      box-shadow: 0 0 0 1px var(--muted);
+    }
+
+    .supporting-experience h3 {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .supporting-experience .timeline-subtitle,
+    .supporting-experience li {
+      font-size: 13px;
+    }
+
+    .supporting-label {
+      display: inline-flex;
+      padding: 4px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
     .projects-grid {
       display: grid;
       grid-template-columns: 1.25fr 0.75fr;
@@ -1327,8 +1361,8 @@
           <h2 data-lang="en">Experience across markets and data.</h2>
           <h2 data-lang="zh">连接市场与数据的经历。</h2>
         </div>
-        <p class="section-lead" data-lang="en">Hands-on work in quantitative strategy research, backtesting, bond issuance, credit analysis, teaching, and data analytics.</p>
-        <p class="section-lead" data-lang="zh">实践覆盖量化策略研究、历史回测、债券发行、信用分析、教学与数据分析。</p>
+        <p class="section-lead" data-lang="en">Hands-on work in quantitative strategy research, backtesting, bond issuance, credit analysis, and data analytics.</p>
+        <p class="section-lead" data-lang="zh">实践覆盖量化策略研究、历史回测、债券发行、信用分析与数据分析。</p>
       </div>
 
       <div class="timeline reveal">
@@ -1353,18 +1387,6 @@
             <div class="timeline-subtitle" data-lang="zh">国金证券股份有限公司 · 中国济南</div>
             <ul data-lang="en"><li>Supported bond issuance and underwriting projects, including prospectuses, lead-underwriter verification reports, compliance submissions, and project bids.</li><li>Organized issuer financial and operating data; analyzed solvency, credit risk, and use of proceeds, and completed Excel calculations, data verification, and working-paper preparation.</li></ul>
             <ul data-lang="zh"><li>参与债券发行与承销项目，协助撰写募集说明书、主承销商核查意见、合规申报材料及项目投标书。</li><li>整理发行人财务与经营数据，分析偿债能力、信用风险及募集资金用途，并使用 Excel 完成财务测算、数据核验与底稿整理。</li></ul>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <div class="timeline-date" data-lang="en">Sep 2024 — Present</div>
-          <div class="timeline-date" data-lang="zh">2024.09 — 至今</div>
-          <div class="timeline-content">
-            <h3 data-lang="en">Teaching Assistant</h3><h3 data-lang="zh">助教</h3>
-            <div class="timeline-subtitle" data-lang="en">SavvyUni Teaching Institution · Mississauga, Canada</div>
-            <div class="timeline-subtitle" data-lang="zh">SavvyUni Teaching Institution · 加拿大密西沙加</div>
-            <ul data-lang="en"><li>Refine lesson plans and explain advanced statistical and mathematical concepts in weekly tutorials.</li><li>Support students with coursework expectations, problem solving, and clear technical communication.</li></ul>
-            <ul data-lang="zh"><li>优化课程计划，并在每周辅导中讲解进阶统计与数学概念。</li><li>为学生提供课程答疑、解题支持和清晰的技术沟通。</li></ul>
           </div>
         </article>
 
@@ -1401,6 +1423,20 @@
             <div class="timeline-subtitle" data-lang="zh">烟台市大数据发展集团 · 中国烟台</div>
             <ul data-lang="en"><li>Processed and validated large datasets with Python, SQL, and R.</li><li>Applied statistical analysis and automated reporting with R, SAS, Excel, and Tableau.</li></ul>
             <ul data-lang="zh"><li>使用 Python、SQL 和 R 处理并验证大型数据集。</li><li>使用 R、SAS、Excel 和 Tableau 完成统计分析与自动化报告。</li></ul>
+          </div>
+        </article>
+
+        <article class="timeline-item supporting-experience">
+          <div class="timeline-date" data-lang="en">Sep 2024 — Present</div>
+          <div class="timeline-date" data-lang="zh">2024.09 — 至今</div>
+          <div class="timeline-content">
+            <span class="supporting-label" data-lang="en">Additional experience</span>
+            <span class="supporting-label" data-lang="zh">补充经历</span>
+            <h3 data-lang="en">Teaching Assistant</h3><h3 data-lang="zh">助教</h3>
+            <div class="timeline-subtitle" data-lang="en">SavvyUni Teaching Institution · Mississauga, Canada</div>
+            <div class="timeline-subtitle" data-lang="zh">SavvyUni Teaching Institution · 加拿大密西沙加</div>
+            <ul data-lang="en"><li>Refine lesson plans and explain advanced statistical and mathematical concepts in weekly tutorials.</li><li>Support students with coursework expectations, problem solving, and clear technical communication.</li></ul>
+            <ul data-lang="zh"><li>优化课程计划，并在每周辅导中讲解进阶统计与数学概念。</li><li>为学生提供课程答疑、解题支持和清晰的技术沟通。</li></ul>
           </div>
         </article>
       </div>
