@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Yawen Zuo's bilingual portfolio in quantitative finance, risk analytics, statistical modeling, and data science." />
   <meta name="theme-color" content="#071a2b" />
-  <meta property="og:title" content="Yawen Zuo | Quantitative Finance & Risk Analytics" />
+  <meta property="og:title" content="Yawen Zuo | Quantitative Finance &amp; Risk Analytics" />
   <meta property="og:description" content="Statistics graduate and HKU Master of Statistics student building data-driven solutions for financial risk and quantitative analysis." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="headshot.jpg" />
-  <title>Yawen Zuo | Quantitative Finance & Risk Analytics</title>
+  <title>Yawen Zuo | Quantitative Finance &amp; Risk Analytics</title>
   <link rel="icon" type="image/png" href="favicon-v2.png" />
 
   <style>
@@ -23,6 +23,7 @@
       --bg: #f4f7f8;
       --surface: #ffffff;
       --surface-soft: #eaf2f3;
+      --surface-raised: rgba(255, 255, 255, 0.78);
       --text: #142433;
       --muted: #5d6d79;
       --line: #d7e1e4;
@@ -35,6 +36,7 @@
       --bg: #07131d;
       --surface: #0e2130;
       --surface-soft: #122c3d;
+      --surface-raised: rgba(14, 33, 48, 0.82);
       --text: #e8f1f4;
       --muted: #a8b8c2;
       --line: #244254;
@@ -131,15 +133,11 @@
     }
 
     .brand-mark {
-      display: grid;
       width: 38px;
       height: 38px;
-      place-items: center;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--teal-400), #68f0d8);
-      color: var(--navy-950);
-      font-size: 14px;
-      box-shadow: 0 0 0 6px rgba(45, 212, 191, 0.08);
+      border-radius: 11px;
+      object-fit: cover;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16), 0 0 0 6px rgba(45, 212, 191, 0.07);
     }
 
     .nav-links,
@@ -297,6 +295,42 @@
       flex-wrap: wrap;
       gap: 14px;
       margin-top: 38px;
+    }
+
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      max-width: 690px;
+      margin-top: 42px;
+      border-top: 1px solid rgba(255, 255, 255, 0.13);
+    }
+
+    .proof-item {
+      padding: 20px 22px 0 0;
+    }
+
+    .proof-item + .proof-item {
+      padding-left: 22px;
+      border-left: 1px solid rgba(255, 255, 255, 0.13);
+    }
+
+    .proof-item strong {
+      display: block;
+      color: white;
+      font-size: 21px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .proof-item span {
+      display: block;
+      margin-top: 6px;
+      color: #93a9b7;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      line-height: 1.45;
+      text-transform: uppercase;
     }
 
     .button {
@@ -655,6 +689,17 @@
       transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
+    .project-card::before {
+      content: attr(data-project);
+      position: absolute;
+      top: 30px;
+      right: 32px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+    }
+
     .project-card.featured {
       color: white;
       border: 0;
@@ -670,6 +715,11 @@
       bottom: -90px;
       border: 42px solid rgba(45, 212, 191, 0.12);
       border-radius: 50%;
+    }
+
+    .project-card.featured::before {
+      z-index: 2;
+      color: #8fa8b6;
     }
 
     .project-kicker {
@@ -739,10 +789,45 @@
       color: #d8e6ec;
     }
 
+    .project-links {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 15px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--surface-raised);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 850;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .project-link:hover {
+      transform: translateY(-2px);
+      border-color: var(--teal-500);
+    }
+
     .quant-project {
       grid-column: 1 / -1;
       min-height: 0;
       padding: 0;
+    }
+
+    .quant-project::before {
+      z-index: 4;
+      color: #78909d;
     }
 
     .quant-layout {
@@ -1039,6 +1124,9 @@
 
       .hero-grid { grid-template-columns: 1fr; }
       .hero-copy { font-size: 18px; }
+      .hero-proof { grid-template-columns: 1fr; }
+      .proof-item { padding: 16px 0; }
+      .proof-item + .proof-item { padding-left: 0; border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.13); }
       .portrait-wrap { width: min(86%, 380px); margin: 24px auto 0; }
       .data-card { right: -10px; }
 
@@ -1070,7 +1158,7 @@
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-inner">
       <a class="brand" href="#top" aria-label="Yawen Zuo home">
-        <span class="brand-mark">YZ</span>
+        <img class="brand-mark" src="favicon-v2.png" alt="" width="38" height="38" />
         <span class="brand-name">YAWEN ZUO</span>
       </a>
 
@@ -1102,7 +1190,7 @@
         </p>
 
         <div data-lang="en">
-          <h1>Yawen Zuo<span>Quantitative Finance & Risk Analytics</span></h1>
+          <h1>Yawen Zuo<span>Quantitative Finance &amp; Risk Analytics</span></h1>
           <p class="hero-copy">Statistics graduate and HKU Master of Statistics student building data-driven solutions for financial risk and quantitative analysis.</p>
           <p class="hero-focus">QUANTITATIVE FINANCE · RISK ANALYTICS · STATISTICAL MODELING</p>
         </div>
@@ -1120,6 +1208,12 @@
           <a class="button secondary" href="mailto:yawen_zuo76@163.com">
             <span data-lang="en">Start a conversation</span><span data-lang="zh">与我联系</span>
           </a>
+        </div>
+
+        <div class="hero-proof" aria-label="Selected highlights">
+          <div class="proof-item"><strong>300</strong><span data-lang="en">Stocks researched</span><span data-lang="zh">只股票研究样本</span></div>
+          <div class="proof-item"><strong>83,880</strong><span data-lang="en">Strict OOS predictions</span><span data-lang="zh">条严格样本外预测</span></div>
+          <div class="proof-item"><strong>Top 3 / 90</strong><span data-lang="en">ML competition</span><span data-lang="zh">机器学习竞赛</span></div>
         </div>
       </div>
 
@@ -1279,7 +1373,7 @@
           <div class="timeline-date" data-lang="zh">2025.07 — 09</div>
           <div class="timeline-content">
             <h3 data-lang="en">Capital Markets Intern</h3><h3 data-lang="zh">资本市场实习生</h3>
-            <div class="timeline-subtitle" data-lang="en">Shenwan & Hongyuan Securities · Jinan, China</div>
+            <div class="timeline-subtitle" data-lang="en">Shenwan &amp; Hongyuan Securities · Jinan, China</div>
             <div class="timeline-subtitle" data-lang="zh">申万宏源证券 · 中国济南</div>
             <ul data-lang="en"><li>Supported ABS, convertible, innovation, and green-bond issuance projects.</li><li>Prepared financial analyses and researched credit risk, pricing, markets, and policy.</li></ul>
             <ul data-lang="zh"><li>参与 ABS、可转债、创新债和绿色债等债券发行项目。</li><li>完成财务分析，并研究信用风险、定价、市场与政策。</li></ul>
@@ -1324,7 +1418,7 @@
       </div>
 
       <div class="projects-grid">
-        <article class="project-card quant-project reveal">
+        <article class="project-card quant-project reveal" data-project="01 / 03">
           <div class="quant-layout">
             <div class="quant-copy">
               <span class="project-kicker" data-lang="en">Quantitative Research · 2026</span>
@@ -1344,6 +1438,11 @@
               <div class="research-note" data-lang="en">Time-ordered holdout check: -4.95% strategy return vs -10.44% benchmark, for +6.13% active return. This is a quasi-OOS robustness check; the LSTM uses non-overlapping strict OOS test folds and reached ROC AUC 0.6465.</div>
               <div class="research-note" data-lang="zh">时间有序后 20% 检查：策略收益 -4.95%，基准 -10.44%，主动收益 +6.13%。该结果属于准样本外稳健性检查；LSTM 使用互不重叠的严格样本外测试窗口，ROC AUC 为 0.6465。</div>
               <div class="tags"><span class="tag">Python</span><span class="tag">PyTorch LSTM</span><span class="tag">Factor Research</span><span class="tag">Backtesting</span><span class="tag">Walk-forward</span></div>
+              <div class="project-links">
+                <a class="project-link" href="https://github.com/Zuozuo-76/Quant-internship" target="_blank" rel="noopener noreferrer">
+                  <span data-lang="en">View research repository</span><span data-lang="zh">查看研究代码</span><span aria-hidden="true">↗</span>
+                </a>
+              </div>
             </div>
 
             <div class="quant-visuals">
@@ -1361,7 +1460,7 @@
           </div>
         </article>
 
-        <article class="project-card featured reveal">
+        <article class="project-card featured reveal" data-project="02 / 03">
           <span class="project-kicker" data-lang="en">Machine Learning · 2024</span>
           <span class="project-kicker" data-lang="zh">机器学习 · 2024</span>
           <h3 data-lang="en">Kaggle Machine Learning Competition</h3>
@@ -1372,7 +1471,7 @@
           <div class="tags"><span class="tag">Random Forest</span><span class="tag">LASSO</span><span class="tag">Bagging</span><span class="tag">Cross-validation</span></div>
         </article>
 
-        <article class="project-card reveal">
+        <article class="project-card reveal" data-project="03 / 03">
           <span class="project-kicker" data-lang="en">Business Strategy · 2025</span>
           <span class="project-kicker" data-lang="zh">商业策略 · 2025</span>
           <h3 data-lang="en">North American Technology Business Cases</h3>

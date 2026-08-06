@@ -8,6 +8,7 @@ A bilingual, responsive portfolio for quantitative finance, risk analytics, stat
 - Light and dark themes with saved preferences
 - Responsive navigation and mobile menu
 - Result-focused project cards, education and experience timelines
+- Verified GitHub link for the quantitative research project
 - Downloadable English and Chinese resumes
 - SEO, Open Graph, keyboard focus, reduced-motion, and semantic markup support
 
