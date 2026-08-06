@@ -19,7 +19,8 @@ A bilingual, responsive portfolio for quantitative finance, risk analytics, stat
 ├── 404.html         # GitHub Pages fallback page
 ├── headshot.jpg     # Professional hero portrait
 ├── profile.jpg      # Lifestyle image in the About section
-├── favicon.png      # Browser and sharing icon
+├── favicon-v2.png   # Current browser-tab icon
+├── favicon.png      # Previous icon kept for rollback
 ├── quant_turnover.png     # Quant strategy turnover and return comparison
 ├── quant_lstm_models.png  # Walk-forward out-of-sample model comparison
 ├── resume_en.pdf    # English resume
