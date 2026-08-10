@@ -13,18 +13,6 @@
   <link rel="icon" type="image/png" href="favicon-v2.png" />
 
   <style>
-    .project-link.is-disabled {
-      opacity: 0.52;
-      cursor: not-allowed;
-      pointer-events: none;
-      border-style: dashed;
-    }
-
-    .project-link.is-disabled:hover {
-      transform: none;
-      border-color: var(--line);
-    }
-    
     :root {
       --navy-950: #05131f;
       --navy-900: #071a2b;
@@ -1473,18 +1461,18 @@
               <span class="project-kicker" data-lang="zh">量化研究 · 2026</span>
               <h3 data-lang="en">Execution-Aware Multi-Factor Equity Research</h3>
               <h3 data-lang="zh">执行约束下的多因子量化研究</h3>
-              <p data-lang="en">Built an end-to-end pipeline across 302 trading days and 300 stocks: tick-to-minute and daily data processing, seven-factor evaluation, t+1 execution, fees, slippage and market impact, turnover control, and a PyTorch 3-fold walk-forward LSTM.</p>
-              <p data-lang="zh">围绕 302 个交易日和 300 只股票搭建端到端流程，覆盖逐笔数据清洗与分钟及日频聚合、七因子评价、t+1 执行、手续费与滑点冲击、换手控制，以及 PyTorch 3-fold walk-forward LSTM。</p>
+              <p data-lang="en">Built an end-to-end pipeline across 302 trading days and 300 stocks: tick-to-minute and daily data processing, 18 daily factors, t+1 execution, fees, slippage and market impact, turnover control, a 15% volatility target, and a PyTorch 3-fold walk-forward LSTM.</p>
+              <p data-lang="zh">围绕 302 个交易日和 300 只股票搭建端到端流程，覆盖逐笔数据清洗与分钟及日频聚合、18 个日频因子、t+1 执行、手续费与滑点冲击、换手控制、15% 波动率目标，以及 PyTorch 3-fold walk-forward LSTM。</p>
 
               <div class="quant-stats">
                 <div class="quant-stat"><strong>90,600</strong><span data-lang="en">daily stock rows</span><span data-lang="zh">日频股票记录</span></div>
-                <div class="quant-stat"><strong>7</strong><span data-lang="en">evaluated factors</span><span data-lang="zh">个评价因子</span></div>
-                <div class="quant-stat"><strong>8.76%</strong><span data-lang="en">optimized daily one-way turnover</span><span data-lang="zh">优化后日均单边换手</span></div>
+                <div class="quant-stat"><strong>18</strong><span data-lang="en">constructed daily factors</span><span data-lang="zh">个构建日频因子</span></div>
+                <div class="quant-stat"><strong>8.81%</strong><span data-lang="en">optimized daily one-way turnover</span><span data-lang="zh">优化后日均单边换手</span></div>
                 <div class="quant-stat"><strong>83,880</strong><span data-lang="en">strict OOS LSTM predictions</span><span data-lang="zh">严格样本外 LSTM 预测</span></div>
               </div>
 
-              <div class="research-note" data-lang="en">Time-ordered holdout check: -4.95% strategy return vs -10.44% benchmark, for +6.13% active return. This is a quasi-OOS robustness check; the LSTM uses non-overlapping strict OOS test folds and reached ROC AUC 0.6465.</div>
-              <div class="research-note" data-lang="zh">时间有序后 20% 检查：策略收益 -4.95%，基准 -10.44%，主动收益 +6.13%。该结果属于准样本外稳健性检查；LSTM 使用互不重叠的严格样本外测试窗口，ROC AUC 为 0.6465。</div>
+              <div class="research-note" data-lang="en">Latest report: the adopted 15% volatility-target strategy returned 27.52% after costs over the full sample, with 24.95% annualized return, -9.58% maximum drawdown, and a 1.446 Sharpe ratio. The final 20% returned -4.10% vs -10.44% for the benchmark, for +7.08% active return; it is a quasi-OOS check because it informed version selection. The LSTM uses non-overlapping strict OOS folds and reached ROC AUC 0.6465.</div>
+              <div class="research-note" data-lang="zh">最新报告：最终采用的 15% 波动率目标策略在完整样本中实现成本后累计收益 27.52%、年化收益 24.95%、最大回撤 -9.58%，夏普率 1.446。后 20% 区间策略收益 -4.10%，基准 -10.44%，主动收益 +7.08%；由于该区间参与版本选择，因此属于准样本外检查。LSTM 使用互不重叠的严格样本外测试窗口，ROC AUC 为 0.6465。</div>
               <div class="tags"><span class="tag">Python</span><span class="tag">PyTorch LSTM</span><span class="tag">Factor Research</span><span class="tag">Backtesting</span><span class="tag">Walk-forward</span></div>
               <div class="project-links">
                 <!-- GitHub 代码仓库 -->
@@ -1499,27 +1487,17 @@
                     <span aria-hidden="true">↗</span>
                   </a>
 
-                  <!-- 中文版研究报告 -->
+                  <!-- 报告链接随网页语言切换 -->
                   <a
+                    id="report-download"
                     class="project-link"
-                    href="./quant_research_report_zh.pdf"
-                    download="Yawen_Zuo_Quant_Research_Report_ZH.pdf"
+                    href="quant_research_report_en.pdf"
+                    download="Yawen_Zuo_Quantitative_Trading_Report_EN.pdf"
                   >
-                    <span data-lang="en">Download Chinese report</span>
-                    <span data-lang="zh">下载中文版报告</span>
+                    <span data-lang="en">Download English report</span>
+                    <span data-lang="zh">下载中文报告</span>
                     <span aria-hidden="true">↓</span>
                   </a>
-
-                  <!-- 英文版暂未完成 -->
-                  <span
-                    class="project-link is-disabled"
-                    aria-disabled="true"
-                    title="English report coming soon"
-                  >
-                    <span data-lang="en">English report · Coming soon</span>
-                    <span data-lang="zh">英文版报告 · 即将上线</span>
-                    <span aria-hidden="true">◷</span>
-                  </span>
                 </div>
             </div>
 
@@ -1620,6 +1598,7 @@
     const navLinks = document.getElementById('nav-links');
     const resumeNav = document.getElementById('resume-nav');
     const resumeContact = document.getElementById('resume-contact');
+    const reportDownload = document.getElementById('report-download');
 
     function setLanguage(language) {
       const isChinese = language === 'zh';
@@ -1630,6 +1609,10 @@
       languageToggle.setAttribute('aria-pressed', String(isChinese));
       resumeNav.href = isChinese ? 'resume_zh.pdf' : 'resume_en.pdf';
       resumeContact.href = isChinese ? 'resume_zh.pdf' : 'resume_en.pdf';
+      reportDownload.href = isChinese ? 'quant_research_report_zh.pdf' : 'quant_research_report_en.pdf';
+      reportDownload.download = isChinese
+        ? 'Yawen_Zuo_Quantitative_Trading_Report_ZH.pdf'
+        : 'Yawen_Zuo_Quantitative_Trading_Report_EN.pdf';
       document.title = isChinese ? '左雅文 | 量化金融与风险分析' : 'Yawen Zuo | Quantitative Finance & Risk Analytics';
       document.querySelector('meta[name="description"]').content = isChinese
         ? '左雅文的双语作品集，聚焦量化金融、风险分析、统计建模与数据科学。'

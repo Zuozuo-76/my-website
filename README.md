@@ -9,6 +9,7 @@ A bilingual, responsive portfolio for quantitative finance, risk analytics, stat
 - Responsive navigation and mobile menu
 - Result-focused project cards, education and experience timelines
 - Verified GitHub link for the quantitative research project
+- Language-aware English and Chinese quantitative report downloads
 - Downloadable English and Chinese resumes
 - SEO, Open Graph, keyboard focus, reduced-motion, and semantic markup support
 
@@ -24,6 +25,8 @@ A bilingual, responsive portfolio for quantitative finance, risk analytics, stat
 ├── favicon.png      # Previous icon kept for rollback
 ├── quant_turnover.png     # Quant strategy turnover and return comparison
 ├── quant_lstm_models.png  # Walk-forward out-of-sample model comparison
+├── quant_research_report_en.pdf  # Latest English quantitative research report
+├── quant_research_report_zh.pdf  # Latest Chinese quantitative research report
 ├── resume_en.pdf    # English resume
 └── resume_zh.pdf    # Chinese resume
 ```
