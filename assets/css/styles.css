@@ -1236,6 +1236,17 @@
       border-bottom: 0;
     }
 
+    .result-table .highlight-row th,
+    .result-table .highlight-row td {
+      background: rgba(22, 184, 166, 0.1);
+      color: var(--text);
+      font-weight: 900;
+    }
+
+    .result-table .highlight-row th:first-child {
+      box-shadow: inset 4px 0 0 var(--teal-500);
+    }
+
     .case-figure {
       margin: 0;
       overflow: hidden;

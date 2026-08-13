@@ -9,6 +9,7 @@ A bilingual, responsive portfolio for quantitative finance, risk analytics, stat
 - Responsive navigation and mobile menu
 - Result-focused project cards, education and experience timelines
 - Dedicated quantitative research case study with explicit Full Sample, Quasi-OOS, and Strict Walk-forward OOS labels
+- Dedicated Kaggle competition case study with a linked public leaderboard and downloadable CSV evidence
 - Verified GitHub link for the quantitative research project
 - Language-aware English and Chinese quantitative report downloads
 - Downloadable English and Chinese resumes
@@ -20,9 +21,11 @@ A bilingual, responsive portfolio for quantitative finance, risk analytics, stat
 .
 ├── index.html                    # Portfolio homepage and content
 ├── projects/
-│   └── quant-research.html       # Quantitative research case study
+│   ├── quant-research.html       # Quantitative research case study
+│   └── kaggle-competition.html   # Kaggle competition case study
 ├── assets/
 │   ├── css/styles.css            # Shared responsive styles
+│   ├── data/sta-314-2024-public-leaderboard.csv # Public leaderboard evidence
 │   ├── js/main.js                # Language, theme, navigation, and reveal behavior
 │   └── images/og-portfolio.png   # 1200×630 social preview card
 ├── 404.html                      # GitHub Pages fallback page

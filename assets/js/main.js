@@ -30,6 +30,16 @@
           title: '执行约束下的多因子量化研究 | 左雅文',
           description: '左雅文的多因子量化研究详情页，明确区分完整样本、准样本外与严格 walk-forward 样本外结果。'
         }
+      },
+      'kaggle-competition': {
+        en: {
+          title: 'STA 314 Kaggle Competition | Yawen Zuo',
+          description: 'Team Ziza placed third on the STA 314 2024 Kaggle public leaderboard. Explore the result, modeling workflow, and downloadable evidence.'
+        },
+        zh: {
+          title: 'STA 314 Kaggle 竞赛 | 左雅文',
+          description: 'Ziza 团队在 STA 314 2024 Kaggle 公开排行榜中获得第 3 名；本页展示竞赛结果、建模流程与可下载证明。'
+        }
       }
     };
 
@@ -41,10 +51,12 @@
       languageToggle.setAttribute('aria-label', isChinese ? 'Switch to English' : '切换至中文');
       languageToggle.setAttribute('aria-pressed', String(isChinese));
       const resumePath = `${assetPrefix}${isChinese ? 'resume_zh.pdf' : 'resume_en.pdf'}`;
-      resumeNav.href = resumePath;
-      resumeContact.href = resumePath;
-      reportDownload.href = `${assetPrefix}${isChinese ? 'quant_research_report_zh.pdf' : 'quant_research_report_en.pdf'}`;
-      reportDownload.download = isChinese ? 'Yawen_Zuo_Quantitative_Trading_Report_ZH.pdf' : 'Yawen_Zuo_Quantitative_Trading_Report_EN.pdf';
+      if (resumeNav) resumeNav.href = resumePath;
+      if (resumeContact) resumeContact.href = resumePath;
+      if (reportDownload) {
+        reportDownload.href = `${assetPrefix}${isChinese ? 'quant_research_report_zh.pdf' : 'quant_research_report_en.pdf'}`;
+        reportDownload.download = isChinese ? 'Yawen_Zuo_Quantitative_Trading_Report_ZH.pdf' : 'Yawen_Zuo_Quantitative_Trading_Report_EN.pdf';
+      }
       const localizedMeta = pageMeta[page]?.[isChinese ? 'zh' : 'en'] || pageMeta.home.en;
       document.title = localizedMeta.title;
       document.querySelector('meta[name="description"]').content = localizedMeta.description;
