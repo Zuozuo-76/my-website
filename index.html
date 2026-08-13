@@ -3,1190 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Yawen Zuo's bilingual portfolio in quantitative finance, risk analytics, statistical modeling, and data science." />
+  <meta name="description" content="Yawen Zuo is a statistics-trained analyst building execution-aware quantitative models and decision-ready financial risk analysis." />
+  <meta name="author" content="Yawen Zuo" />
+  <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#071a2b" />
+  <link rel="canonical" href="https://my-website-seven-khaki.vercel.app/" />
   <meta property="og:title" content="Yawen Zuo | Quantitative Finance &amp; Risk Analytics" />
-  <meta property="og:description" content="Statistics graduate and HKU Master of Statistics student building data-driven solutions for financial risk and quantitative analysis." />
+  <meta property="og:description" content="Statistics-trained analyst building execution-aware models and decision-ready financial analysis." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="headshot.jpg" />
+  <meta property="og:url" content="https://my-website-seven-khaki.vercel.app/" />
+  <meta property="og:site_name" content="Yawen Zuo Portfolio" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://my-website-seven-khaki.vercel.app/assets/images/og-portfolio.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Yawen Zuo — Quantitative Finance and Risk Analytics" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Yawen Zuo | Quantitative Finance &amp; Risk Analytics" />
+  <meta name="twitter:description" content="Execution-aware quantitative research and decision-ready financial risk analysis." />
+  <meta name="twitter:image" content="https://my-website-seven-khaki.vercel.app/assets/images/og-portfolio.png" />
+  <meta name="twitter:image:alt" content="Yawen Zuo — Quantitative Finance and Risk Analytics" />
   <title>Yawen Zuo | Quantitative Finance &amp; Risk Analytics</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" href="favicon-v2.png" />
-
-  <style>
-    :root {
-      --navy-950: #05131f;
-      --navy-900: #071a2b;
-      --navy-800: #0d2940;
-      --teal-500: #16b8a6;
-      --teal-400: #2dd4bf;
-      --blue-500: #3b82f6;
-      --bg: #f4f7f8;
-      --surface: #ffffff;
-      --surface-soft: #eaf2f3;
-      --surface-raised: rgba(255, 255, 255, 0.78);
-      --text: #142433;
-      --muted: #5d6d79;
-      --line: #d7e1e4;
-      --shadow: 0 24px 70px rgba(7, 26, 43, 0.11);
-      --radius-lg: 28px;
-      --radius-md: 18px;
-    }
-
-    html[data-theme="dark"] {
-      --bg: #07131d;
-      --surface: #0e2130;
-      --surface-soft: #122c3d;
-      --surface-raised: rgba(14, 33, 48, 0.82);
-      --text: #e8f1f4;
-      --muted: #a8b8c2;
-      --line: #244254;
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 92px;
-    }
-
-    body {
-      margin: 0;
-      overflow-x: hidden;
-      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      transition: background 0.25s ease, color 0.25s ease;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background-image: radial-gradient(circle at 12% 14%, rgba(22, 184, 166, 0.07), transparent 26%),
-                        radial-gradient(circle at 88% 35%, rgba(59, 130, 246, 0.06), transparent 28%);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    :focus-visible {
-      outline: 3px solid var(--teal-400);
-      outline-offset: 4px;
-      border-radius: 8px;
-    }
-
-    .skip-link {
-      position: fixed;
-      top: -100px;
-      left: 20px;
-      z-index: 1000;
-      padding: 10px 16px;
-      background: white;
-      color: var(--navy-900);
-      border-radius: 10px;
-      font-weight: 800;
-    }
-
-    .skip-link:focus {
-      top: 16px;
-    }
-
-    .site-nav {
-      position: fixed;
-      inset: 0 0 auto 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(5, 19, 31, 0.84);
-      backdrop-filter: blur(18px);
-    }
-
-    .nav-inner {
-      width: min(1180px, calc(100% - 40px));
-      min-height: 72px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: white;
-      font-weight: 850;
-      letter-spacing: 0.04em;
-    }
-
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 11px;
-      object-fit: cover;
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16), 0 0 0 6px rgba(45, 212, 191, 0.07);
-    }
-
-    .nav-links,
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .nav-links a {
-      padding: 9px 11px;
-      color: #c5d3dc;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 700;
-      transition: color 0.2s ease, background 0.2s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: white;
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .icon-button,
-    .lang-button,
-    .menu-button {
-      min-width: 38px;
-      height: 38px;
-      padding: 0 10px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 11px;
-      background: rgba(255, 255, 255, 0.06);
-      color: white;
-      cursor: pointer;
-      font: inherit;
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .menu-button {
-      display: none;
-      font-size: 20px;
-    }
-
-    .resume-nav {
-      display: inline-flex;
-      align-items: center;
-      height: 38px;
-      padding: 0 15px;
-      border-radius: 11px;
-      background: var(--teal-400);
-      color: var(--navy-950);
-      font-size: 13px;
-      font-weight: 850;
-    }
-
-    .hero {
-      position: relative;
-      min-height: 780px;
-      padding: 154px 0 96px;
-      overflow: hidden;
-      background: var(--navy-950);
-      color: white;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 720px;
-      height: 720px;
-      top: -230px;
-      right: -180px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(45, 212, 191, 0.16), transparent 66%);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      height: 190px;
-      opacity: 0.55;
-      background: linear-gradient(180deg, transparent, rgba(22, 184, 166, 0.06)),
-                  repeating-linear-gradient(90deg, transparent 0 7.9%, rgba(255, 255, 255, 0.035) 8%);
-      clip-path: polygon(0 72%, 8% 68%, 15% 74%, 23% 52%, 31% 58%, 39% 37%, 47% 48%, 55% 24%, 63% 34%, 71% 19%, 79% 30%, 87% 10%, 94% 16%, 100% 3%, 100% 100%, 0 100%);
-    }
-
-    .hero-grid {
-      position: relative;
-      z-index: 2;
-      width: min(1180px, calc(100% - 48px));
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      align-items: center;
-      gap: 80px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin: 0 0 24px;
-      color: var(--teal-400);
-      font-size: 13px;
-      font-weight: 850;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 34px;
-      height: 2px;
-      background: currentColor;
-    }
-
-    .hero h1 {
-      margin: 0;
-      max-width: 720px;
-      font-size: clamp(52px, 7vw, 88px);
-      line-height: 0.98;
-      letter-spacing: -0.055em;
-    }
-
-    .hero h1 span {
-      display: block;
-      margin-top: 16px;
-      color: #a8bbc7;
-      font-size: 0.42em;
-      line-height: 1.25;
-      letter-spacing: -0.025em;
-      font-weight: 650;
-    }
-
-    .hero-copy {
-      max-width: 670px;
-      margin: 28px 0 0;
-      color: #c5d3dc;
-      font-size: clamp(18px, 2vw, 22px);
-      line-height: 1.7;
-    }
-
-    .hero-focus {
-      margin-top: 26px;
-      color: #eaf7f5;
-      font-size: 14px;
-      font-weight: 750;
-      letter-spacing: 0.06em;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 38px;
-    }
-
-    .hero-proof {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      max-width: 690px;
-      margin-top: 42px;
-      border-top: 1px solid rgba(255, 255, 255, 0.13);
-    }
-
-    .proof-item {
-      padding: 20px 22px 0 0;
-    }
-
-    .proof-item + .proof-item {
-      padding-left: 22px;
-      border-left: 1px solid rgba(255, 255, 255, 0.13);
-    }
-
-    .proof-item strong {
-      display: block;
-      color: white;
-      font-size: 21px;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-    }
-
-    .proof-item span {
-      display: block;
-      margin-top: 6px;
-      color: #93a9b7;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      line-height: 1.45;
-      text-transform: uppercase;
-    }
-
-    .button {
-      display: inline-flex;
-      min-height: 50px;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      padding: 0 22px;
-      border: 1px solid transparent;
-      border-radius: 14px;
-      font-weight: 850;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-3px);
-    }
-
-    .button.primary {
-      background: var(--teal-400);
-      color: var(--navy-950);
-      box-shadow: 0 14px 30px rgba(45, 212, 191, 0.2);
-    }
-
-    .button.secondary {
-      border-color: rgba(255, 255, 255, 0.24);
-      background: rgba(255, 255, 255, 0.06);
-      color: white;
-    }
-
-    .portrait-wrap {
-      position: relative;
-      max-width: 420px;
-      margin-left: auto;
-    }
-
-    .portrait-frame {
-      position: relative;
-      aspect-ratio: 0.82;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 220px 220px 28px 28px;
-      background: var(--navy-800);
-      box-shadow: 0 36px 80px rgba(0, 0, 0, 0.35);
-    }
-
-    .portrait-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 52% center;
-      filter: saturate(0.76) contrast(1.03);
-    }
-
-    .portrait-frame::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 55%, rgba(5, 19, 31, 0.48));
-      pointer-events: none;
-    }
-
-    .data-card {
-      position: absolute;
-      right: -34px;
-      bottom: 34px;
-      width: 210px;
-      padding: 17px 18px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 16px;
-      background: rgba(10, 36, 53, 0.82);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-      backdrop-filter: blur(14px);
-    }
-
-    .data-card small {
-      display: block;
-      color: #9eb2bf;
-      font-weight: 700;
-    }
-
-    .data-card strong {
-      display: block;
-      margin-top: 3px;
-      color: white;
-      font-size: 26px;
-    }
-
-    .data-card span {
-      color: var(--teal-400);
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    main {
-      width: min(1180px, calc(100% - 48px));
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 104px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section:last-child {
-      border-bottom: 0;
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: 0.7fr 1.3fr;
-      gap: 80px;
-      margin-bottom: 56px;
-      align-items: end;
-    }
-
-    .section-index {
-      display: block;
-      margin-bottom: 10px;
-      color: var(--teal-500);
-      font-size: 13px;
-      font-weight: 850;
-      letter-spacing: 0.16em;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: clamp(36px, 5vw, 58px);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-    }
-
-    .section-lead {
-      margin: 0;
-      color: var(--muted);
-      font-size: 19px;
-      line-height: 1.75;
-    }
-
-    .capability-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .capability {
-      min-height: 260px;
-      padding: 30px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      background: var(--surface);
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .capability:hover,
-    .project-card:hover {
-      transform: translateY(-7px);
-      border-color: rgba(22, 184, 166, 0.55);
-      box-shadow: var(--shadow);
-    }
-
-    .capability-number {
-      display: grid;
-      width: 44px;
-      height: 44px;
-      place-items: center;
-      border-radius: 13px;
-      background: var(--surface-soft);
-      color: var(--teal-500);
-      font-size: 13px;
-      font-weight: 900;
-    }
-
-    h3 {
-      margin: 22px 0 10px;
-      font-size: 22px;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-    }
-
-    .capability p,
-    .project-card p,
-    .contact-copy {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .about-story {
-      display: grid;
-      grid-template-columns: 0.82fr 1.18fr;
-      align-items: stretch;
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .about-photo {
-      position: relative;
-      min-height: 390px;
-      margin: 0;
-      overflow: hidden;
-      border-radius: var(--radius-lg);
-      background: var(--navy-900);
-    }
-
-    .about-photo img {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      inset: 0;
-      object-fit: cover;
-      object-position: 50% 48%;
-      filter: saturate(0.82) contrast(1.04);
-    }
-
-    .about-photo::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 54%, rgba(5, 19, 31, 0.62));
-    }
-
-    .about-photo figcaption {
-      position: absolute;
-      z-index: 2;
-      left: 24px;
-      right: 24px;
-      bottom: 20px;
-      color: white;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .about-note {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: clamp(34px, 6vw, 70px);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background: var(--surface-soft);
-    }
-
-    .about-note h3 {
-      max-width: 600px;
-      margin: 0 0 18px;
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.12;
-      letter-spacing: -0.04em;
-    }
-
-    .about-note p {
-      max-width: 620px;
-      margin: 0;
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .timeline {
-      position: relative;
-      max-width: 1000px;
-      margin-left: auto;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      top: 9px;
-      bottom: 14px;
-      left: 188px;
-      width: 1px;
-      background: var(--line);
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 74px;
-      padding-bottom: 48px;
-    }
-
-    .timeline-item:last-child {
-      padding-bottom: 0;
-    }
-
-    .timeline-date {
-      padding-top: 2px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 800;
-      text-align: right;
-    }
-
-    .timeline-content {
-      position: relative;
-    }
-
-    .timeline-content::before {
-      content: "";
-      position: absolute;
-      top: 7px;
-      left: -41px;
-      width: 12px;
-      height: 12px;
-      border: 4px solid var(--bg);
-      border-radius: 50%;
-      background: var(--teal-500);
-      box-shadow: 0 0 0 1px var(--teal-500);
-    }
-
-    .timeline-content h3 {
-      margin: 0 0 5px;
-    }
-
-    .timeline-subtitle {
-      margin-bottom: 14px;
-      color: var(--teal-500);
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .timeline-content p,
-    .timeline-content li {
-      color: var(--muted);
-    }
-
-    .timeline-content p {
-      margin: 0;
-    }
-
-    .timeline-content ul {
-      margin: 12px 0 0;
-      padding-left: 18px;
-    }
-
-    .timeline-content li {
-      margin: 5px 0;
-    }
-
-    .supporting-experience {
-      margin-top: 16px;
-      padding-top: 28px;
-      border-top: 1px dashed var(--line);
-    }
-
-    .supporting-experience .timeline-content::before {
-      background: var(--muted);
-      box-shadow: 0 0 0 1px var(--muted);
-    }
-
-    .supporting-experience h3 {
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .supporting-experience .timeline-subtitle,
-    .supporting-experience li {
-      font-size: 13px;
-    }
-
-    .supporting-label {
-      display: inline-flex;
-      padding: 4px 9px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 850;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 20px;
-    }
-
-    .project-card {
-      position: relative;
-      min-height: 390px;
-      overflow: hidden;
-      padding: 34px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background: var(--surface);
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .project-card::before {
-      content: attr(data-project);
-      position: absolute;
-      top: 30px;
-      right: 32px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 0.14em;
-    }
-
-    .project-card.featured {
-      color: white;
-      border: 0;
-      background: linear-gradient(145deg, var(--navy-900), #103b50);
-    }
-
-    .project-card.featured::after {
-      content: "";
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      right: -85px;
-      bottom: -90px;
-      border: 42px solid rgba(45, 212, 191, 0.12);
-      border-radius: 50%;
-    }
-
-    .project-card.featured::before {
-      z-index: 2;
-      color: #8fa8b6;
-    }
-
-    .project-kicker {
-      color: var(--teal-500);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .featured .project-kicker {
-      color: var(--teal-400);
-    }
-
-    .project-card h3 {
-      max-width: 560px;
-      margin-top: 32px;
-      font-size: clamp(27px, 3.3vw, 42px);
-    }
-
-    .project-card.featured p {
-      max-width: 590px;
-      color: #bfd0d9;
-    }
-
-    .metric {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      margin: 24px 0 12px;
-    }
-
-    .metric strong {
-      color: var(--teal-400);
-      font-size: clamp(38px, 5vw, 64px);
-      line-height: 1;
-      letter-spacing: -0.05em;
-    }
-
-    .metric span {
-      color: #bfd0d9;
-      font-weight: 750;
-    }
-
-    .tags {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 26px;
-    }
-
-    .tag {
-      padding: 7px 11px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--surface-soft);
-      color: var(--text);
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .featured .tag {
-      border-color: rgba(255, 255, 255, 0.14);
-      background: rgba(255, 255, 255, 0.07);
-      color: #d8e6ec;
-    }
-
-    .project-links {
-      position: relative;
-      z-index: 3;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 28px;
-    }
-
-    .project-link {
-      display: inline-flex;
-      min-height: 42px;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      padding: 0 15px;
-      border: 1px solid var(--line);
-      border-radius: 11px;
-      background: var(--surface-raised);
-      color: var(--text);
-      font-size: 13px;
-      font-weight: 850;
-      transition: border-color 0.2s ease, transform 0.2s ease;
-    }
-
-    .project-link:hover {
-      transform: translateY(-2px);
-      border-color: var(--teal-500);
-    }
-
-    .quant-project {
-      grid-column: 1 / -1;
-      min-height: 0;
-      padding: 0;
-    }
-
-    .quant-project::before {
-      z-index: 4;
-      color: #78909d;
-    }
-
-    .quant-layout {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      min-height: 620px;
-    }
-
-    .quant-copy {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: clamp(34px, 5vw, 60px);
-    }
-
-    .quant-project h3 {
-      margin: 22px 0 18px;
-    }
-
-    .quant-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 26px;
-    }
-
-    .quant-stat {
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: var(--surface-soft);
-    }
-
-    .quant-stat strong {
-      display: block;
-      color: var(--teal-500);
-      font-size: 24px;
-      line-height: 1.1;
-    }
-
-    .quant-stat span {
-      display: block;
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 750;
-    }
-
-    .research-note {
-      margin-top: 22px;
-      padding-left: 14px;
-      border-left: 3px solid var(--teal-500);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .quant-visuals {
-      display: grid;
-      align-content: center;
-      gap: 14px;
-      padding: 28px;
-      background: linear-gradient(145deg, var(--navy-900), #103b50);
-    }
-
-    .quant-visuals figure {
-      margin: 0;
-      overflow: hidden;
-      padding: 10px 10px 8px;
-      border-radius: 16px;
-      background: white;
-      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.2);
-    }
-
-    .quant-visuals img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    .quant-visuals figcaption {
-      padding: 7px 6px 2px;
-      color: #4c5d69;
-      font-size: 11px;
-      font-weight: 750;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .skill-group {
-      padding: 26px;
-      border-top: 3px solid var(--teal-500);
-      border-radius: 0 0 var(--radius-md) var(--radius-md);
-      background: var(--surface);
-    }
-
-    .skill-group h3 {
-      margin: 0 0 17px;
-      font-size: 18px;
-    }
-
-    .skill-group ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .skill-group li {
-      padding: 8px 0;
-      border-bottom: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .skill-group li:last-child {
-      border-bottom: 0;
-    }
-
-    .cert-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    .cert {
-      padding: 20px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: transparent;
-    }
-
-    .cert strong {
-      display: block;
-      line-height: 1.35;
-    }
-
-    .cert small {
-      color: var(--muted);
-    }
-
-    .contact-panel {
-      position: relative;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 60px;
-      padding: 60px;
-      border-radius: var(--radius-lg);
-      background: var(--navy-900);
-      color: white;
-    }
-
-    .contact-panel::after {
-      content: "";
-      position: absolute;
-      width: 340px;
-      height: 340px;
-      right: -150px;
-      top: -150px;
-      border-radius: 50%;
-      background: rgba(45, 212, 191, 0.12);
-    }
-
-    .contact-panel h2 {
-      max-width: 680px;
-    }
-
-    .contact-panel .contact-copy {
-      max-width: 650px;
-      margin-top: 22px;
-      color: #b8c9d2;
-      font-size: 18px;
-    }
-
-    .contact-links {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .contact-links a {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 18px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.05);
-      font-weight: 800;
-      transition: background 0.2s ease;
-    }
-
-    .contact-links a:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    footer {
-      width: min(1180px, calc(100% - 48px));
-      margin: 0 auto;
-      padding: 34px 0 46px;
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    body [data-lang] {
-      display: none;
-    }
-
-    body[data-language="en"] [data-lang="en"],
-    body[data-language="zh"] [data-lang="zh"] {
-      display: revert;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; animation: none !important; }
-      .reveal { opacity: 1; transform: none; }
-    }
-
-    @media (max-width: 980px) {
-      .nav-links {
-        position: absolute;
-        top: 72px;
-        left: 20px;
-        right: 20px;
-        display: none;
-        padding: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 16px;
-        background: #081d2e;
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-      }
-
-      .nav-links.open {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .menu-button { display: inline-block; }
-      .resume-nav { display: none; }
-
-      .hero-grid {
-        grid-template-columns: 1fr 0.72fr;
-        gap: 42px;
-      }
-
-      .capability-grid,
-      .skills-grid { grid-template-columns: repeat(2, 1fr); }
-      .cert-row { grid-template-columns: repeat(2, 1fr); }
-      .projects-grid { grid-template-columns: 1fr; }
-      .about-story { grid-template-columns: 0.9fr 1.1fr; }
-      .quant-layout { grid-template-columns: 1fr; }
-      .quant-visuals { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 720px) {
-      .nav-inner,
-      main,
-      footer,
-      .hero-grid {
-        width: min(100% - 32px, 1180px);
-      }
-
-      .brand-name { display: none; }
-      .nav-actions { gap: 6px; }
-      .lang-button, .icon-button, .menu-button { min-width: 36px; height: 36px; }
-
-      .hero {
-        min-height: auto;
-        padding: 126px 0 76px;
-      }
-
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-copy { font-size: 18px; }
-      .hero-proof { grid-template-columns: 1fr; }
-      .proof-item { padding: 16px 0; }
-      .proof-item + .proof-item { padding-left: 0; border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.13); }
-      .portrait-wrap { width: min(86%, 380px); margin: 24px auto 0; }
-      .data-card { right: -10px; }
-
-      .section { padding: 76px 0; }
-      .section-head { grid-template-columns: 1fr; gap: 22px; margin-bottom: 38px; }
-      .capability-grid, .skills-grid, .cert-row { grid-template-columns: 1fr; }
-      .capability { min-height: auto; }
-      .about-story { grid-template-columns: 1fr; }
-      .about-photo { min-height: 420px; }
-
-      .timeline::before { left: 7px; }
-      .timeline-item { grid-template-columns: 1fr; gap: 12px; padding-left: 38px; }
-      .timeline-date { text-align: left; }
-      .timeline-content::before { left: -37px; }
-
-      .project-card { min-height: auto; padding: 28px; }
-      .quant-project { padding: 0; }
-      .quant-visuals { grid-template-columns: 1fr; padding: 18px; }
-      .quant-stats { grid-template-columns: repeat(2, 1fr); }
-      .contact-panel { grid-template-columns: 1fr; gap: 34px; padding: 34px 26px; }
-      footer { flex-direction: column; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfilePage",
+          "@id": "https://my-website-seven-khaki.vercel.app/#portfolio",
+          "url": "https://my-website-seven-khaki.vercel.app/",
+          "name": "Yawen Zuo | Quantitative Finance & Risk Analytics",
+          "description": "A bilingual portfolio focused on quantitative finance, risk analytics, and statistical modeling.",
+          "mainEntity": { "@id": "https://my-website-seven-khaki.vercel.app/#person" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://my-website-seven-khaki.vercel.app/#person",
+          "name": "Yawen Zuo",
+          "alternateName": "左雅文",
+          "url": "https://my-website-seven-khaki.vercel.app/",
+          "image": "https://my-website-seven-khaki.vercel.app/headshot.jpg",
+          "description": "Statistics-trained analyst focused on quantitative finance and risk analytics.",
+          "sameAs": ["https://github.com/Zuozuo-76"],
+          "knowsAbout": ["Quantitative Finance", "Risk Analytics", "Statistical Modeling", "Credit Analysis"]
+        }
+      ]
+    }
+  </script>
 </head>
 
-<body data-language="en">
+<body data-language="en" data-page="home">
   <a class="skip-link" href="#main-content">Skip to content</a>
 
   <nav class="site-nav" aria-label="Primary navigation">
@@ -1219,19 +88,19 @@
     <div class="hero-grid">
       <div>
         <p class="eyebrow">
-          <span data-lang="en">Statistics · Finance · Data</span>
-          <span data-lang="zh">统计 · 金融 · 数据</span>
+          <span data-lang="en">Quantitative Finance · Risk Analytics</span>
+          <span data-lang="zh">量化金融 · 风险分析</span>
         </p>
 
         <div data-lang="en">
           <h1>Yawen Zuo<span>Quantitative Finance &amp; Risk Analytics</span></h1>
-          <p class="hero-copy">Statistics graduate and HKU Master of Statistics student building data-driven solutions for financial risk and quantitative analysis.</p>
+          <p class="hero-copy">Statistics-trained analyst and HKU Master of Statistics student building execution-aware models and decision-ready financial analysis.</p>
           <p class="hero-focus">QUANTITATIVE FINANCE · RISK ANALYTICS · STATISTICAL MODELING</p>
         </div>
 
         <div data-lang="zh">
           <h1>左雅文<span>量化金融与风险分析</span></h1>
-          <p class="hero-copy">统计学本科毕业，现就读于香港大学统计学硕士，以数据驱动的方法解决金融风险与量化分析问题。</p>
+          <p class="hero-copy">拥有统计学训练背景，现就读于香港大学统计学硕士，聚焦执行约束下的量化模型与面向决策的金融分析。</p>
           <p class="hero-focus">量化金融 · 风险分析 · 统计建模</p>
         </div>
 
@@ -1247,7 +116,7 @@
         <div class="hero-proof" aria-label="Selected highlights">
           <div class="proof-item"><strong>300</strong><span data-lang="en">Stocks researched</span><span data-lang="zh">只股票研究样本</span></div>
           <div class="proof-item"><strong>83,880</strong><span data-lang="en">Strict OOS predictions</span><span data-lang="zh">条严格样本外预测</span></div>
-          <div class="proof-item"><strong>Top 3 / 98</strong><span data-lang="en">Kaggle ML competition</span><span data-lang="zh">Kaggle 机器学习竞赛</span></div>
+          <div class="proof-item"><strong>Top 3</strong><span data-lang="en">Kaggle ML competition</span><span data-lang="zh">Kaggle 机器学习竞赛</span></div>
         </div>
       </div>
 
@@ -1258,7 +127,7 @@
         <div class="data-card" aria-hidden="true">
           <small data-lang="en">Competition result</small>
           <small data-lang="zh">竞赛成绩</small>
-          <strong>Top 3 / 98</strong>
+          <strong>Top 3</strong>
           <span>↗ Machine Learning</span>
         </div>
       </div>
@@ -1455,64 +324,46 @@
 
       <div class="projects-grid">
         <article class="project-card quant-project reveal" data-project="01 / 03">
-          <div class="quant-layout">
+          <div class="quant-summary-grid">
             <div class="quant-copy">
               <span class="project-kicker" data-lang="en">Quantitative Research · 2026</span>
               <span class="project-kicker" data-lang="zh">量化研究 · 2026</span>
               <h3 data-lang="en">Execution-Aware Multi-Factor Equity Research</h3>
               <h3 data-lang="zh">执行约束下的多因子量化研究</h3>
-              <p data-lang="en">Built an end-to-end pipeline across 302 trading days and 300 stocks: tick-to-minute and daily data processing, 18 daily factors, t+1 execution, fees, slippage and market impact, turnover control, a 15% volatility target, and a PyTorch 3-fold walk-forward LSTM.</p>
-              <p data-lang="zh">围绕 302 个交易日和 300 只股票搭建端到端流程，覆盖逐笔数据清洗与分钟及日频聚合、18 个日频因子、t+1 执行、手续费与滑点冲击、换手控制、15% 波动率目标，以及 PyTorch 3-fold walk-forward LSTM。</p>
+              <p class="quant-intro" data-lang="en">Built an end-to-end research pipeline for 300 stocks across 302 trading days, incorporating t+1 execution, market impact, turnover controls, volatility targeting, and walk-forward prediction.</p>
+              <p class="quant-intro" data-lang="zh">面向 300 只股票与 302 个交易日搭建端到端研究流程，纳入 t+1 执行、市场冲击、换手控制、波动率目标与 walk-forward 预测。</p>
 
-              <div class="quant-stats">
-                <div class="quant-stat"><strong>90,600</strong><span data-lang="en">daily stock rows</span><span data-lang="zh">日频股票记录</span></div>
-                <div class="quant-stat"><strong>18</strong><span data-lang="en">constructed daily factors</span><span data-lang="zh">个构建日频因子</span></div>
-                <div class="quant-stat"><strong>8.81%</strong><span data-lang="en">optimized daily one-way turnover</span><span data-lang="zh">优化后日均单边换手</span></div>
-                <div class="quant-stat"><strong>83,880</strong><span data-lang="en">strict OOS LSTM predictions</span><span data-lang="zh">严格样本外 LSTM 预测</span></div>
+              <div class="quant-stats" aria-label="Key research results">
+                <div class="quant-stat"><strong>300</strong><span data-lang="en">stocks researched</span><span data-lang="zh">只股票研究样本</span></div>
+                <div class="quant-stat"><strong>18</strong><span data-lang="en">daily factors evaluated</span><span data-lang="zh">个日频因子完成评价</span></div>
+                <div class="quant-stat"><strong>&lt;9%</strong><span data-lang="en">average daily one-way turnover</span><span data-lang="zh">平均单边日换手率</span></div>
+                <div class="quant-stat"><strong>0.6465</strong><span data-lang="en">strict OOS LSTM ROC AUC</span><span data-lang="zh">严格样本外 LSTM ROC AUC</span></div>
               </div>
 
-              <div class="research-note" data-lang="en">Latest report: the adopted 15% volatility-target strategy returned 27.52% after costs over the full sample, with 24.95% annualized return, -9.58% maximum drawdown, and a 1.446 Sharpe ratio. The final 20% returned -4.10% vs -10.44% for the benchmark, for +7.08% active return; it is a quasi-OOS check because it informed version selection. The LSTM uses non-overlapping strict OOS folds and reached ROC AUC 0.6465.</div>
-              <div class="research-note" data-lang="zh">最新报告：最终采用的 15% 波动率目标策略在完整样本中实现成本后累计收益 27.52%、年化收益 24.95%、最大回撤 -9.58%，夏普率 1.446。后 20% 区间策略收益 -4.10%，基准 -10.44%，主动收益 +7.08%；由于该区间参与版本选择，因此属于准样本外检查。LSTM 使用互不重叠的严格样本外测试窗口，ROC AUC 为 0.6465。</div>
-              <div class="tags"><span class="tag">Python</span><span class="tag">PyTorch LSTM</span><span class="tag">Factor Research</span><span class="tag">Backtesting</span><span class="tag">Walk-forward</span></div>
               <div class="project-links">
-                <!-- GitHub 代码仓库 -->
-                  <a
-                    class="project-link"
-                    href="https://github.com/Zuozuo-76/Quant-internship"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span data-lang="en">View research repository</span>
-                    <span data-lang="zh">查看研究代码</span>
-                    <span aria-hidden="true">↗</span>
-                  </a>
-
-                  <!-- 报告链接随网页语言切换 -->
-                  <a
-                    id="report-download"
-                    class="project-link"
-                    href="quant_research_report_en.pdf"
-                    download="Yawen_Zuo_Quantitative_Trading_Report_EN.pdf"
-                  >
-                    <span data-lang="en">Download English report</span>
-                    <span data-lang="zh">下载中文报告</span>
-                    <span aria-hidden="true">↓</span>
-                  </a>
-                </div>
+                <a class="project-link project-link-primary" href="projects/quant-research.html">
+                  <span data-lang="en">View methodology</span><span data-lang="zh">查看研究详情</span><span aria-hidden="true">→</span>
+                </a>
+                <a class="project-link" href="https://github.com/Zuozuo-76/Quant-internship" target="_blank" rel="noopener noreferrer">
+                  <span>GitHub</span><span aria-hidden="true">↗</span>
+                </a>
+                <a id="report-download" class="project-link" href="quant_research_report_en.pdf" download="Yawen_Zuo_Quantitative_Trading_Report_EN.pdf">
+                  <span data-lang="en">Report</span><span data-lang="zh">报告</span><span aria-hidden="true">↓</span>
+                </a>
+              </div>
             </div>
 
-            <div class="quant-visuals">
-              <figure>
-                <img src="quant_turnover.png?v=20260811" alt="Comparison of turnover policies and net returns after transaction costs" width="2000" height="768" loading="lazy" />
-                <figcaption data-lang="en">Turnover policy and cost-aware return comparison</figcaption>
-                <figcaption data-lang="zh">换手政策与成本后收益对比</figcaption>
-              </figure>
-              <figure>
-                <img src="quant_lstm_models.png?v=20260811" alt="Walk-forward out-of-sample comparison of LSTM and baseline models" width="1520" height="768" loading="lazy" />
-                <figcaption data-lang="en">Strict walk-forward out-of-sample model comparison</figcaption>
-                <figcaption data-lang="zh">严格 walk-forward 样本外模型比较</figcaption>
-              </figure>
-            </div>
+            <aside class="quant-verdict">
+              <span class="verdict-label" data-lang="en">Honest read</span>
+              <span class="verdict-label" data-lang="zh">诚实结论</span>
+              <strong data-lang="en">The adopted strategy returned 27.52% after costs over the full sample; its final holdout was -4.10% versus -10.44% for the benchmark.</strong>
+              <strong data-lang="zh">最终采用策略在完整样本的成本后收益为 27.52%；最终留出期为 -4.10%，同期基准为 -10.44%。</strong>
+              <p data-lang="en">Because this window informed version selection, it is labeled <b>Quasi-OOS</b>. The <b>Strict OOS</b> label applies only to the LSTM walk-forward folds.</p>
+              <p data-lang="zh">由于该窗口参与版本选择，因此标记为<b>准样本外</b>；<b>严格样本外</b>仅适用于 LSTM walk-forward 测试窗口。</p>
+              <div class="result-labels" aria-label="Result scope labels">
+                <span>Full Sample</span><span>Quasi-OOS</span><span>Strict Walk-forward OOS</span>
+              </div>
+            </aside>
           </div>
         </article>
 
@@ -1521,9 +372,11 @@
           <span class="project-kicker" data-lang="zh">机器学习 · 2024</span>
           <h3 data-lang="en">Kaggle Machine Learning Competition</h3>
           <h3 data-lang="zh">Kaggle 机器学习竞赛</h3>
-          <div class="metric"><strong>Top 3</strong><span data-lang="en">among 90 teams</span><span data-lang="zh">共 90 组</span></div>
+          <div class="metric"><strong>Top 3</strong><span data-lang="en">competition finish</span><span data-lang="zh">竞赛排名</span></div>
           <p data-lang="en">Built a Random Forest ensemble after high-dimensional EDA, log transformation, standardization, and cross-validated Bagging and LASSO feature selection.</p>
           <p data-lang="zh">完成高维探索分析、对数变换和标准化，并通过交叉验证结合 Bagging、LASSO 特征选择与随机森林集成建模。</p>
+          <p class="project-availability" data-lang="en">Leaderboard evidence available upon request.</p>
+          <p class="project-availability" data-lang="zh">可按需提供排行榜证明材料。</p>
           <div class="tags"><span class="tag">Kaggle</span><span class="tag">Random Forest</span><span class="tag">LASSO</span><span class="tag">Bagging</span><span class="tag">Cross-validation</span></div>
         </article>
 
@@ -1534,6 +387,8 @@
           <h3 data-lang="zh">北美科技行业商业案例</h3>
           <p data-lang="en">Evaluated company operations, financial performance, economic trends, consumer behaviour, and marketing strategy, culminating in a client-facing case presentation.</p>
           <p data-lang="zh">从运营、财务表现、经济趋势、消费者行为和市场策略分析北美公司，并完成面向客户的案例展示。</p>
+          <p class="project-availability" data-lang="en">Selected presentation materials available upon request.</p>
+          <p class="project-availability" data-lang="zh">可按需提供部分演示材料。</p>
           <div class="tags"><span class="tag">Industry Research</span><span class="tag">Financial Analysis</span><span class="tag">Strategy</span></div>
         </article>
       </div>
@@ -1571,8 +426,8 @@
           <span class="section-index">06 / CONTACT</span>
           <h2 data-lang="en">Let’s turn complex data into clear decisions.</h2>
           <h2 data-lang="zh">让复杂数据转化为清晰决策。</h2>
-          <p class="contact-copy" data-lang="en">Open to opportunities and conversations in quantitative finance, risk analytics, data analytics, financial analysis, and business intelligence.</p>
-          <p class="contact-copy" data-lang="zh">期待量化金融、风险分析、数据分析、金融分析与商业智能方向的机会与交流。</p>
+          <p class="contact-copy" data-lang="en">Open to opportunities and conversations in quantitative finance, risk analytics, and financial analysis.</p>
+          <p class="contact-copy" data-lang="zh">期待量化金融、风险分析与金融分析方向的机会与交流。</p>
         </div>
         <div class="contact-links">
           <a href="mailto:yawen_zuo76@163.com"><span>Email</span><span>↗</span></a>
@@ -1589,99 +444,6 @@
     <a href="#top"><span data-lang="en">Back to top ↑</span><span data-lang="zh">返回顶部 ↑</span></a>
   </footer>
 
-  <script>
-    const body = document.body;
-    const root = document.documentElement;
-    const languageToggle = document.getElementById('language-toggle');
-    const themeToggle = document.getElementById('theme-toggle');
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    const resumeNav = document.getElementById('resume-nav');
-    const resumeContact = document.getElementById('resume-contact');
-    const reportDownload = document.getElementById('report-download');
-
-    function setLanguage(language) {
-      const isChinese = language === 'zh';
-      body.dataset.language = isChinese ? 'zh' : 'en';
-      root.lang = isChinese ? 'zh-CN' : 'en';
-      languageToggle.textContent = isChinese ? 'EN' : '中文';
-      languageToggle.setAttribute('aria-label', isChinese ? 'Switch to English' : '切换至中文');
-      languageToggle.setAttribute('aria-pressed', String(isChinese));
-      resumeNav.href = isChinese ? 'resume_zh.pdf' : 'resume_en.pdf';
-      resumeContact.href = isChinese ? 'resume_zh.pdf' : 'resume_en.pdf';
-      reportDownload.href = isChinese ? 'quant_research_report_zh.pdf' : 'quant_research_report_en.pdf';
-      reportDownload.download = isChinese
-        ? 'Yawen_Zuo_Quantitative_Trading_Report_ZH.pdf'
-        : 'Yawen_Zuo_Quantitative_Trading_Report_EN.pdf';
-      document.title = isChinese ? '左雅文 | 量化金融与风险分析' : 'Yawen Zuo | Quantitative Finance & Risk Analytics';
-      document.querySelector('meta[name="description"]').content = isChinese
-        ? '左雅文的双语作品集，聚焦量化金融、风险分析、统计建模与数据科学。'
-        : "Yawen Zuo's bilingual portfolio in quantitative finance, risk analytics, statistical modeling, and data science.";
-      localStorage.setItem('siteLanguage', isChinese ? 'zh' : 'en');
-    }
-
-    function setTheme(theme) {
-      const isDark = theme === 'dark';
-      root.dataset.theme = isDark ? 'dark' : 'light';
-      themeToggle.textContent = isDark ? '☀' : '◐';
-      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-      themeToggle.setAttribute('aria-pressed', String(isDark));
-      localStorage.setItem('siteTheme', isDark ? 'dark' : 'light');
-    }
-
-    languageToggle.addEventListener('click', () => {
-      setLanguage(body.dataset.language === 'en' ? 'zh' : 'en');
-    });
-
-    themeToggle.addEventListener('click', () => {
-      setTheme(root.dataset.theme === 'light' ? 'dark' : 'light');
-    });
-
-    menuToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-      menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
-      menuToggle.textContent = isOpen ? '×' : '☰';
-    });
-
-    navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.textContent = '☰';
-      });
-    });
-
-    const preferredLanguage = localStorage.getItem('siteLanguage')
-      || (navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en');
-    const preferredTheme = localStorage.getItem('siteTheme')
-      || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    setLanguage(preferredLanguage);
-    setTheme(preferredTheme);
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
-
-    const sections = document.querySelectorAll('main section[id]');
-    const navAnchors = document.querySelectorAll('.nav-links a');
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navAnchors.forEach((anchor) => {
-            anchor.classList.toggle('active', anchor.getAttribute('href') === `#${entry.target.id}`);
-          });
-        }
-      });
-    }, { rootMargin: '-35% 0px -55% 0px' });
-    sections.forEach((section) => sectionObserver.observe(section));
-  </script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

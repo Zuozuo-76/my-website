@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Execution-aware multi-factor equity research by Yawen Zuo, with transparent full-sample, quasi-OOS, and strict walk-forward OOS results." />
+  <meta name="author" content="Yawen Zuo" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#071a2b" />
+  <link rel="canonical" href="https://my-website-seven-khaki.vercel.app/projects/quant-research.html" />
+  <meta property="og:title" content="Execution-Aware Equity Research | Yawen Zuo" />
+  <meta property="og:description" content="A transparent case study covering execution-aware backtesting, sample boundaries, walk-forward prediction, and research limitations." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://my-website-seven-khaki.vercel.app/projects/quant-research.html" />
+  <meta property="og:site_name" content="Yawen Zuo Portfolio" />
+  <meta property="og:image" content="https://my-website-seven-khaki.vercel.app/assets/images/og-portfolio.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Yawen Zuo — Quantitative Finance and Risk Analytics" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Execution-Aware Equity Research | Yawen Zuo" />
+  <meta name="twitter:description" content="Full-sample, quasi-OOS, and strict walk-forward OOS evidence presented with explicit limitations." />
+  <meta name="twitter:image" content="https://my-website-seven-khaki.vercel.app/assets/images/og-portfolio.png" />
+  <title>Execution-Aware Equity Research | Yawen Zuo</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  <link rel="icon" type="image/png" href="../favicon-v2.png" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Execution-Aware Multi-Factor Equity Research",
+      "description": "A quantitative research case study with execution-aware backtesting and explicit sample-boundary labeling.",
+      "author": {
+        "@type": "Person",
+        "name": "Yawen Zuo",
+        "url": "https://my-website-seven-khaki.vercel.app/"
+      },
+      "url": "https://my-website-seven-khaki.vercel.app/projects/quant-research.html",
+      "image": "https://my-website-seven-khaki.vercel.app/assets/images/og-portfolio.png"
+    }
+  </script>
+</head>
+
+<body data-language="en" data-page="quant-research" data-asset-prefix="../">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Research navigation">
+    <div class="nav-inner">
+      <a class="brand" href="../index.html" aria-label="Yawen Zuo portfolio home">
+        <img class="brand-mark" src="../favicon-v2.png" alt="" width="38" height="38" />
+        <span class="brand-name">YAWEN ZUO</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#question"><span data-lang="en">Question</span><span data-lang="zh">问题</span></a>
+        <a href="#pipeline"><span data-lang="en">Pipeline</span><span data-lang="zh">流程</span></a>
+        <a href="#backtest"><span data-lang="en">Backtest</span><span data-lang="zh">回测</span></a>
+        <a href="#oos"><span data-lang="en">OOS</span><span data-lang="zh">样本外</span></a>
+        <a href="#limitations"><span data-lang="en">Limitations</span><span data-lang="zh">局限</span></a>
+      </div>
+      <div class="nav-actions">
+        <button class="lang-button" id="language-toggle" type="button" aria-label="Switch to Chinese" aria-pressed="false">中文</button>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">◐</button>
+        <a class="resume-nav" id="resume-nav" href="../resume_en.pdf" download><span data-lang="en">Resume ↓</span><span data-lang="zh">简历 ↓</span></a>
+        <button class="menu-button" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="case-hero" id="top">
+    <div class="case-shell">
+      <a class="case-breadcrumb" href="../index.html#projects"><span aria-hidden="true">←</span> <span data-lang="en">Selected work</span><span data-lang="zh">返回精选项目</span></a>
+      <div class="case-hero-grid">
+        <div>
+          <span class="case-kicker" data-lang="en">QUANTITATIVE RESEARCH · 2026</span>
+          <span class="case-kicker" data-lang="zh">量化研究 · 2026</span>
+          <h1 data-lang="en">Execution-Aware Multi-Factor Equity Research</h1>
+          <h1 data-lang="zh">执行约束下的多因子量化研究</h1>
+          <p class="case-lead" data-lang="en">An end-to-end study of 300 anonymized stocks across 302 trading days, designed to test what remains after t+1 execution, transaction costs, market impact, turnover controls, and honest sample-boundary labeling.</p>
+          <p class="case-lead" data-lang="zh">围绕 300 只匿名股票与 302 个交易日开展端到端研究，重点检验在 t+1 执行、交易成本、市场冲击、换手控制与诚实样本边界下仍能保留的结果。</p>
+          <div class="case-actions">
+            <a class="button primary" href="https://github.com/Zuozuo-76/Quant-internship" target="_blank" rel="noopener noreferrer"><span data-lang="en">View repository ↗</span><span data-lang="zh">查看代码仓库 ↗</span></a>
+            <a class="button secondary" id="report-download" href="../quant_research_report_en.pdf" download="Yawen_Zuo_Quantitative_Trading_Report_EN.pdf"><span data-lang="en">Download report ↓</span><span data-lang="zh">下载报告 ↓</span></a>
+          </div>
+        </div>
+        <aside class="case-hero-note">
+          <span data-lang="en">Result labels used on this page</span>
+          <span data-lang="zh">本页使用的结果标签</span>
+          <dl>
+            <div><dt>Full Sample</dt><dd data-lang="en">Descriptive, not OOS</dd><dd data-lang="zh">描述性结果，非样本外</dd></div>
+            <div><dt>Quasi-OOS</dt><dd data-lang="en">Holdout influenced selection</dd><dd data-lang="zh">留出期参与版本选择</dd></div>
+            <div><dt>Strict Walk-forward OOS</dt><dd data-lang="en">LSTM test folds only</dd><dd data-lang="zh">仅限 LSTM 测试窗口</dd></div>
+          </dl>
+        </aside>
+      </div>
+
+      <div class="case-snapshot" aria-label="Research snapshot">
+        <div><strong>27.52%</strong><span data-lang="en">Full-sample after-cost return</span><span data-lang="zh">完整样本成本后收益</span></div>
+        <div><strong>1.446</strong><span data-lang="en">Full-sample Sharpe ratio</span><span data-lang="zh">完整样本夏普率</span></div>
+        <div><strong>-4.10%</strong><span data-lang="en">Final holdout strategy return</span><span data-lang="zh">最终留出期策略收益</span></div>
+        <div><strong>0.6465</strong><span data-lang="en">Strict OOS LSTM ROC AUC</span><span data-lang="zh">严格样本外 LSTM ROC AUC</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="case-main">
+    <section class="case-section" id="question">
+      <div class="case-section-heading reveal">
+        <span class="section-index">01 / RESEARCH QUESTION</span>
+        <h2 data-lang="en">Can a factor signal survive realistic execution?</h2>
+        <h2 data-lang="zh">因子信号能否经受真实执行约束？</h2>
+      </div>
+      <div class="case-prose-grid reveal">
+        <p data-lang="en">The study asks a practical question: after delaying execution to t+1 and charging fees, slippage, market impact, and turnover, does a cross-sectional equity signal retain useful risk-adjusted performance?</p>
+        <p data-lang="zh">本研究关注一个实践问题：将执行推迟至 t+1，并计入手续费、滑点、市场冲击与换手后，横截面股票信号是否仍能保留有用的风险调整表现？</p>
+        <p data-lang="en">A separate LSTM experiment evaluates prediction under non-overlapping walk-forward test windows. Its classification metrics are reported independently and are not presented as trading returns.</p>
+        <p data-lang="zh">独立的 LSTM 实验在互不重叠的 walk-forward 测试窗口中评估预测能力。其分类指标与交易收益分开报告，不作等价解释。</p>
+      </div>
+    </section>
+
+    <section class="case-section" id="pipeline">
+      <div class="case-section-heading reveal">
+        <span class="section-index">02 / DATA &amp; PIPELINE</span>
+        <h2 data-lang="en">One traceable path from raw records to evidence.</h2>
+        <h2 data-lang="zh">从原始记录到研究证据的可追溯流程。</h2>
+      </div>
+      <div class="pipeline-grid">
+        <article class="pipeline-step reveal"><span>01</span><h3 data-lang="en">Prepare</h3><h3 data-lang="zh">数据准备</h3><p data-lang="en">Clean tick data, handle outliers, aggregate minute and daily bars, and validate schemas before research.</p><p data-lang="zh">清洗逐笔数据、处理异常值、聚合分钟与日频行情，并在研究前验证数据结构。</p></article>
+        <article class="pipeline-step reveal"><span>02</span><h3 data-lang="en">Construct</h3><h3 data-lang="zh">因子构建</h3><p data-lang="en">Create cross-sectional signals with lag-aware features so the ranking step uses only information available at the decision time.</p><p data-lang="zh">使用严格滞后的特征构建横截面信号，确保排序仅使用决策时点可得信息。</p></article>
+        <article class="pipeline-step reveal"><span>03</span><h3 data-lang="en">Execute</h3><h3 data-lang="zh">执行回测</h3><p data-lang="en">Apply t+1 fills, portfolio buffers, turnover controls, costs, slippage, market impact, and volatility targeting.</p><p data-lang="zh">纳入 t+1 成交、持仓缓冲、换手控制、交易费用、滑点、市场冲击与波动率目标。</p></article>
+        <article class="pipeline-step reveal"><span>04</span><h3 data-lang="en">Evaluate</h3><h3 data-lang="zh">评估</h3><p data-lang="en">Separate full-sample strategy analysis, a selection-influenced holdout, and strict walk-forward LSTM test folds.</p><p data-lang="zh">明确区分完整样本策略分析、参与版本选择的留出期，以及严格 walk-forward 的 LSTM 测试窗口。</p></article>
+      </div>
+    </section>
+
+    <section class="case-section" id="backtest">
+      <div class="case-section-heading reveal">
+        <span class="section-index">03 / EXECUTION-AWARE BACKTEST</span>
+        <h2 data-lang="en">Headline results, with the sample boundary attached.</h2>
+        <h2 data-lang="zh">关键结果与样本边界同时呈现。</h2>
+      </div>
+
+      <div class="result-table-wrap reveal">
+        <table class="result-table">
+          <thead><tr><th data-lang="en">Window</th><th data-lang="zh">区间</th><th data-lang="en">Strategy</th><th data-lang="zh">策略</th><th data-lang="en">Benchmark</th><th data-lang="zh">基准</th><th data-lang="en">Interpretation</th><th data-lang="zh">解释</th></tr></thead>
+          <tbody>
+            <tr><th>Full Sample</th><td>27.52%</td><td>2.34%</td><td data-lang="en">After cost; Sharpe 1.446; max drawdown -9.58%. Not OOS.</td><td data-lang="zh">成本后结果；夏普率 1.446；最大回撤 -9.58%。非样本外。</td></tr>
+            <tr><th>Final Holdout</th><td>-4.10%</td><td>-10.44%</td><td data-lang="en">7.08% cumulative active return, calculated from strategy and benchmark net values. Quasi-OOS because selection used this window.</td><td data-lang="zh">根据策略与基准净值计算，累计主动收益为 7.08%。因该窗口参与版本选择，属于准样本外。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="case-figure reveal">
+        <img src="../quant_turnover.png?v=20260811" alt="Comparison of turnover policies and net returns after transaction costs" width="2000" height="768" loading="lazy" />
+        <figcaption data-lang="en">Turnover policies are compared after transaction costs; lower turnover is evaluated together with net performance rather than in isolation.</figcaption>
+        <figcaption data-lang="zh">在计入交易成本后比较换手政策；低换手与成本后表现共同评估，而非单独宣传。</figcaption>
+      </figure>
+    </section>
+
+    <section class="case-section" id="oos">
+      <div class="case-section-heading reveal">
+        <span class="section-index">04 / OOS FINDINGS</span>
+        <h2 data-lang="en">Strict OOS applies to prediction—not the entire strategy.</h2>
+        <h2 data-lang="zh">严格样本外仅适用于预测实验，而非整套策略。</h2>
+      </div>
+      <div class="oos-grid">
+        <div class="oos-copy reveal">
+          <p data-lang="en">The PyTorch LSTM uses three non-overlapping walk-forward test folds, producing 83,880 strict out-of-sample predictions and ROC AUC 0.6465.</p>
+          <p data-lang="zh">PyTorch LSTM 使用三个互不重叠的 walk-forward 测试窗口，生成 83,880 条严格样本外预测，ROC AUC 为 0.6465。</p>
+          <div class="oos-warning"><strong data-lang="en">Boundary:</strong><strong data-lang="zh">边界：</strong> <span data-lang="en">these are classification results, not realized trading returns. The holdout strategy result remains quasi-OOS.</span><span data-lang="zh">这些是分类结果，不是已实现交易收益；策略留出期结果仍属于准样本外。</span></div>
+        </div>
+        <figure class="case-figure reveal">
+          <img src="../quant_lstm_models.png?v=20260811" alt="Walk-forward out-of-sample comparison of LSTM and baseline models" width="1520" height="768" loading="lazy" />
+          <figcaption data-lang="en">Strict walk-forward out-of-sample comparison of LSTM and baseline classifiers.</figcaption>
+          <figcaption data-lang="zh">LSTM 与基线分类模型的严格 walk-forward 样本外对比。</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="case-section" id="limitations">
+      <div class="case-section-heading reveal">
+        <span class="section-index">05 / LIMITATIONS</span>
+        <h2 data-lang="en">What this study does not prove.</h2>
+        <h2 data-lang="zh">这项研究尚不能证明什么。</h2>
+      </div>
+      <div class="limitations-grid">
+        <article class="limitation reveal"><strong>01</strong><p data-lang="en">Anonymized stocks prevent real industry and market-cap neutralization.</p><p data-lang="zh">股票匿名化，无法开展真实行业与市值中性化。</p></article>
+        <article class="limitation reveal"><strong>02</strong><p data-lang="en">The 302-day sample is too short to establish multi-cycle stability.</p><p data-lang="zh">302 个交易日的样本不足以证明跨周期稳定性。</p></article>
+        <article class="limitation reveal"><strong>03</strong><p data-lang="en">The final holdout influenced strategy selection, so it is not strict OOS.</p><p data-lang="zh">最终留出期参与策略选择，因此不属于严格样本外。</p></article>
+        <article class="limitation reveal"><strong>04</strong><p data-lang="en">Market impact is model-estimated rather than replayed from live fills.</p><p data-lang="zh">市场冲击来自模型估计，并非实盘成交回放。</p></article>
+        <article class="limitation reveal"><strong>05</strong><p data-lang="en">The LSTM experiment covers six stocks and 140 trading days; recall is 8.10% despite stronger ROC AUC.</p><p data-lang="zh">LSTM 实验仅覆盖 6 只股票与 140 个交易日；虽然 ROC AUC 较高，但 Recall 仅 8.10%。</p></article>
+        <article class="limitation reveal"><strong>06</strong><p data-lang="en">No multi-market or multi-period robustness study has been completed.</p><p data-lang="zh">尚未完成多市场或多时间区间的稳健性检验。</p></article>
+      </div>
+
+      <div class="case-cta reveal">
+        <div><span class="section-index">REPRODUCE &amp; REVIEW</span><h2 data-lang="en">Read the code, then read the caveats.</h2><h2 data-lang="zh">先看代码，也请看清局限。</h2></div>
+        <div class="case-cta-links">
+          <a href="https://github.com/Zuozuo-76/Quant-internship" target="_blank" rel="noopener noreferrer"><span>GitHub</span><span>↗</span></a>
+          <a href="../index.html#projects"><span data-lang="en">Portfolio</span><span data-lang="zh">个人主页</span><span>←</span></a>
+          <a id="resume-contact" href="../resume_en.pdf" download><span data-lang="en">Resume</span><span data-lang="zh">简历</span><span>↓</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span data-lang="en">© 2026 Yawen Zuo. Evidence before claims.</span>
+    <span data-lang="zh">© 2026 左雅文。先有证据，再有结论。</span>
+    <a href="#top"><span data-lang="en">Back to top ↑</span><span data-lang="zh">返回顶部 ↑</span></a>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
