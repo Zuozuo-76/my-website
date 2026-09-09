@@ -80,7 +80,9 @@
           <p class="case-lead" data-lang="zh">围绕 300 只匿名股票与 302 个交易日开展端到端研究，重点检验在 t+1 执行、交易成本、市场冲击、换手控制与诚实样本边界下仍能保留的结果。</p>
           <div class="case-actions">
             <a class="button primary" href="https://github.com/Zuozuo-76/Quant-internship" target="_blank" rel="noopener noreferrer"><span data-lang="en">View repository ↗</span><span data-lang="zh">查看代码仓库 ↗</span></a>
-            <a class="button secondary" id="report-download" href="../quant_research_report_en.pdf" download="Yawen_Zuo_Quantitative_Trading_Report_EN.pdf"><span data-lang="en">Download report ↓</span><span data-lang="zh">下载报告 ↓</span></a>
+            <a class="project-link" href="https://github.com/Zuozuo-76/Quant-internship/blob/4070810b4631d0554644039ce2139c2ee926cd67/reports/timing-correction-2026-09-09.md"><span data-lang="en">Current report · 09/09/2026</span><span data-lang="zh">当前报告 · 09/09/2026</span></a>
+                <a class="project-link" href="https://github.com/Zuozuo-76/Quant-internship/blob/4070810b4631d0554644039ce2139c2ee926cd67/backtest/low_risk_strategy_metrics.csv"><span data-lang="en">Strategy metrics CSV</span><span data-lang="zh">策略指标 CSV</span></a>
+                <a class="button secondary" id="report-download" href="../quant_research_report_en.pdf" download="Yawen_Zuo_Quantitative_Trading_Report_EN.pdf"><span data-lang="en">Archived PDF ↓</span><span data-lang="zh">历史 PDF ↓</span></a>
           </div>
         </div>
         <aside class="case-hero-note">
@@ -95,9 +97,9 @@
       </div>
 
       <div class="case-snapshot" aria-label="Research snapshot">
-        <div><strong>27.52%</strong><span data-lang="en">Full-sample after-cost return</span><span data-lang="zh">完整样本成本后收益</span></div>
-        <div><strong>1.446</strong><span data-lang="en">Full-sample Sharpe ratio</span><span data-lang="zh">完整样本夏普率</span></div>
-        <div><strong>-4.10%</strong><span data-lang="en">Final holdout strategy return</span><span data-lang="zh">最终留出期策略收益</span></div>
+        <div><strong>25.90%</strong><span data-lang="en">Full-sample after-cost return</span><span data-lang="zh">完整样本成本后收益</span></div>
+        <div><strong>1.378</strong><span data-lang="en">Full-sample Sharpe ratio</span><span data-lang="zh">完整样本夏普率</span></div>
+        <div><strong>-5.58%</strong><span data-lang="en">Final holdout strategy return</span><span data-lang="zh">最终留出期策略收益</span></div>
         <div><strong>0.6465</strong><span data-lang="en">Strict OOS LSTM ROC AUC</span><span data-lang="zh">严格样本外 LSTM ROC AUC</span></div>
       </div>
     </div>
@@ -113,8 +115,8 @@
       <div class="case-prose-grid reveal">
         <p data-lang="en">The study asks a practical question: after delaying execution to t+1 and charging fees, slippage, market impact, and turnover, does a cross-sectional equity signal retain useful risk-adjusted performance?</p>
         <p data-lang="zh">本研究关注一个实践问题：将执行推迟至 t+1，并计入手续费、滑点、市场冲击与换手后，横截面股票信号是否仍能保留有用的风险调整表现？</p>
-        <p data-lang="en">A separate LSTM experiment evaluates prediction under non-overlapping walk-forward test windows. Its classification metrics are reported independently and are not presented as trading returns.</p>
-        <p data-lang="zh">独立的 LSTM 实验在互不重叠的 walk-forward 测试窗口中评估预测能力。其分类指标与交易收益分开报告，不作等价解释。</p>
+        <p data-lang="en">A separate LSTM experiment evaluates next-bar direction classification under non-overlapping walk-forward test windows. Its classification metrics are reported independently and are not presented as trading returns.</p>
+        <p data-lang="zh">独立的 LSTM 实验在互不重叠的 walk-forward 测试窗口中评估下一根分钟 K 线涨跌方向分类能力。其分类指标与交易收益分开报告，不作等价解释。</p>
       </div>
     </section>
 
@@ -139,18 +141,19 @@
         <h2 data-lang="zh">关键结果与样本边界同时呈现。</h2>
       </div>
 
+<p data-lang="en">Rerun 09/09/2026 · Configuration: <code>vol_target_15_baseline_signal</code>. Full sample: 13/05/2025–26/06/2026; holdout: 07/04/2026–26/06/2026. IC and volatility budgets use only completed returns. Archived PDFs predate this correction.</p><p data-lang="zh">09/09/2026 重跑 · 配置：<code>vol_target_15_baseline_signal</code>。完整样本为 13/05/2025–26/06/2026，留出期为 07/04/2026–26/06/2026。IC 与波动率预算仅使用已结束持有期的收益；历史 PDF 未包含本次修正。</p>
       <div class="result-table-wrap reveal">
         <table class="result-table">
           <thead><tr><th data-lang="en">Window</th><th data-lang="zh">区间</th><th data-lang="en">Strategy</th><th data-lang="zh">策略</th><th data-lang="en">Benchmark</th><th data-lang="zh">基准</th><th data-lang="en">Interpretation</th><th data-lang="zh">解释</th></tr></thead>
           <tbody>
-            <tr><th>Full Sample</th><td>27.52%</td><td>2.34%</td><td data-lang="en">After cost; Sharpe 1.446; max drawdown -9.58%. Not OOS.</td><td data-lang="zh">成本后结果；夏普率 1.446；最大回撤 -9.58%。非样本外。</td></tr>
-            <tr><th>Final Holdout</th><td>-4.10%</td><td>-10.44%</td><td data-lang="en">7.08% cumulative active return, calculated from strategy and benchmark net values. Quasi-OOS because selection used this window.</td><td data-lang="zh">根据策略与基准净值计算，累计主动收益为 7.08%。因该窗口参与版本选择，属于准样本外。</td></tr>
+            <tr><th>Full Sample</th><td>25.90%</td><td>3.25%</td><td data-lang="en">After cost; Sharpe 1.378; max drawdown -10.34%. Not OOS.</td><td data-lang="zh">成本后结果；夏普率 1.378；最大回撤 -10.34%。非样本外。</td></tr>
+            <tr><th>Final Holdout</th><td>-5.58%</td><td>-10.44%</td><td data-lang="en">5.43% cumulative active return, calculated from strategy and benchmark net values. Quasi-OOS because selection used this window.</td><td data-lang="zh">根据策略与基准净值计算，累计主动收益为 5.43%。因该窗口参与版本选择，属于准样本外。</td></tr>
           </tbody>
         </table>
       </div>
 
       <figure class="case-figure reveal">
-        <img src="../quant_turnover.png?v=20260811" alt="Comparison of turnover policies and net returns after transaction costs" width="2000" height="768" loading="lazy" />
+        <img src="../quant_turnover.png?v=20260909" alt="Comparison of turnover policies and net returns after transaction costs" width="2000" height="768" loading="lazy" />
         <figcaption data-lang="en">Turnover policies are compared after transaction costs; lower turnover is evaluated together with net performance rather than in isolation.</figcaption>
         <figcaption data-lang="zh">在计入交易成本后比较换手政策；低换手与成本后表现共同评估，而非单独宣传。</figcaption>
       </figure>
@@ -169,7 +172,7 @@
           <div class="oos-warning"><strong data-lang="en">Boundary:</strong><strong data-lang="zh">边界：</strong> <span data-lang="en">these are classification results, not realized trading returns. The holdout strategy result remains quasi-OOS.</span><span data-lang="zh">这些是分类结果，不是已实现交易收益；策略留出期结果仍属于准样本外。</span></div>
         </div>
         <figure class="case-figure reveal">
-          <img src="../quant_lstm_models.png?v=20260811" alt="Walk-forward out-of-sample comparison of LSTM and baseline models" width="1520" height="768" loading="lazy" />
+          <img src="../quant_lstm_models.png?v=20260909" alt="Walk-forward out-of-sample comparison of LSTM and baseline models" width="1520" height="768" loading="lazy" />
           <figcaption data-lang="en">Strict walk-forward out-of-sample comparison of LSTM and baseline classifiers.</figcaption>
           <figcaption data-lang="zh">LSTM 与基线分类模型的严格 walk-forward 样本外对比。</figcaption>
         </figure>
